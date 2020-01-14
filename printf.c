@@ -38,6 +38,14 @@ void	printf_nbr(va_list *ap)
 	ft_putnbr_fd(nb, 1);
 }
 
+void	put_tab(char *tab_index)
+{
+	tab_index[0] = 'c';
+	tab_index[1] = 's';
+	tab_index[2] = 'd';
+	tab_index[3] = 0;
+}
+
 int		find_index(char *tab, char element)
 {
 	int index;
@@ -62,10 +70,7 @@ int		ft_printf(const char *format, ...)
 
 	pos = 0;
 	temp = 0;
-	tab_index[0] = 'c';
-	tab_index[1] = 's';
-	tab_index[2] = 'd';
-	tab_index[3] = 0;
+	put_tab(tab_index);
 	tab_function[0] = printf_char;
 	tab_function[1] = printf_str;
 	tab_function[2] = printf_nbr;
@@ -78,7 +83,7 @@ int		ft_printf(const char *format, ...)
 			if (temp != -1)
 				(*tab_function[temp]) (&ap);
 		}
-		else
+		else if (format[pos] != '%')
 			write(1, &format[pos], 1);
 		pos++;
 	}

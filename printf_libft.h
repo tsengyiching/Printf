@@ -17,14 +17,14 @@
 # include <stdio.h>
 # include <unistd.h>
 
-typedef struct		s_struct
-{
-    int             left_justify;
-    int             field;
-    int             width;
-    int             precision;
-    int             add_integer;
-}					t_struct;
+// typedef struct		s_struct
+// {
+//     int             left_justify;
+//     int             field;
+//     int             width;
+//     int             precision;
+//     int             add_integer;
+// }					t_struct;
 
 int		ft_printf(const char *format, ...);
 #endif
