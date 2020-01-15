@@ -14,31 +14,7 @@
 #include "printf_libft.h"
 #include "libft/libft.h"
 
-void	printf_char(va_list *ap)
-{
-	char c;
-
-	c = va_arg(*ap, int);
-	write(1, &c, 1);
-}
-
-void	printf_str(va_list *ap)
-{
-	char *str;
-
-	str = va_arg(*ap, char *);
-	write(1, str, ft_strlen(str));
-}
-
-void	printf_nbr(va_list *ap)
-{
-	int nb;
-
-	nb = va_arg(*ap, int);
-	ft_putnbr_fd(nb, 1);
-}
-
-void	put_tab(char *tab_index)
+void	put_index(char *tab_index)
 {
 	tab_index[0] = 'c';
 	tab_index[1] = 's';
@@ -62,7 +38,7 @@ int		find_index(char *tab, char element)
 
 int		ft_printf(const char *format, ...)
 {
-	void (*tab_function[3]) (va_list *);
+	void 	(*tab_function[3]) (va_list *);
 	char	tab_index[4];
 	va_list ap;
 	int 	pos;
@@ -70,10 +46,10 @@ int		ft_printf(const char *format, ...)
 
 	pos = 0;
 	temp = 0;
-	put_tab(tab_index);
-	tab_function[0] = printf_char;
-	tab_function[1] = printf_str;
-	tab_function[2] = printf_nbr;
+	put_index(tab_index);
+	tab_function[0] = &printf_char;
+	tab_function[1] = &printf_str;
+	tab_function[2] = &printf_nbr;
 	va_start(ap, format);
 	while (format[pos])
 	{

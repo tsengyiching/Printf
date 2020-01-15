@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   printf_libft.h                                   .::    .:/ .      .::   */
+/*   conversion_s.c                                   .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: yictseng <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/12/16 19:14:23 by yictseng     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/16 19:16:47 by yictseng    ###    #+. /#+    ###.fr     */
+/*   Created: 2020/01/15 16:30:47 by yictseng     #+#   ##    ##    #+#       */
+/*   Updated: 2020/01/15 16:30:50 by yictseng    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#ifndef PRINTF_LIBFT_H
-# define PRINTF_LIBFT_H
-# include <stdarg.h>
-# include <stdio.h>
-# include <unistd.h>
+#include "printf_libft.h"
+#include "libft/libft.h"
 
-// typedef struct		s_struct
-// {
+void	printf_str(va_list *ap)
+{
+	char *str;
 
-// }					t_struct;
-void	printf_char(va_list *ap);
-void	printf_str(va_list *ap);
-void	printf_nbr(va_list *ap);
-int		ft_printf(const char *format, ...);
-#endif
+	str = va_arg(*ap, char *);
+	write(1, str, ft_strlen(str));
+}
