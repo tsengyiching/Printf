@@ -19,8 +19,9 @@
 
 // typedef struct		s_struct
 // {
-
+//     char    *str;
 // }					t_struct;
+
 void	printf_char(va_list *ap);
 void	printf_str(va_list *ap);
 void	printf_nbr(va_list *ap);

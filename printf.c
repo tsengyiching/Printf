@@ -22,6 +22,41 @@ void	put_index(char *tab_index)
 	tab_index[3] = 0;
 }
 
+// void	put_width(char c)
+// {
+// 	t_struct save;
+// 	int i;
+// 	int width;
+
+// 	i = 0;
+// 	width = 0;
+// 	while (format[pos] >= '0' && format[pos] <= '9')
+// 		save.str[i++] = format[pos++];
+// 	save.str[i] = 0;
+// 	width = ft_atoi(save.str) - 1;
+// 	while (width > 0)
+// 	{
+// 		write(1, " ", 1);
+// 		width--;
+// 	}
+// }                                                       
+
+// void	ft_analyze(char *str)
+// {
+
+// }	
+
+void	apply_conversions(int temp, va_list *ap)
+{
+	void 	(*ptr_function[3]) (va_list *);
+
+	ptr_function[0] = &printf_char;
+	ptr_function[1] = &printf_str;
+	ptr_function[2] = &printf_nbr;
+
+	(*ptr_function[temp]) (ap);
+}
+
 int		find_index(char *tab, char element)
 {
 	int index;
@@ -38,7 +73,6 @@ int		find_index(char *tab, char element)
 
 int		ft_printf(const char *format, ...)
 {
-	void 	(*tab_function[3]) (va_list *);
 	char	tab_index[4];
 	va_list ap;
 	int 	pos;
@@ -47,9 +81,6 @@ int		ft_printf(const char *format, ...)
 	pos = 0;
 	temp = 0;
 	put_index(tab_index);
-	tab_function[0] = &printf_char;
-	tab_function[1] = &printf_str;
-	tab_function[2] = &printf_nbr;
 	va_start(ap, format);
 	while (format[pos])
 	{
@@ -57,7 +88,7 @@ int		ft_printf(const char *format, ...)
 		{
 			temp = find_index(tab_index, format[pos]);
 			if (temp != -1)
-				(*tab_function[temp]) (&ap);
+				apply_conversions(temp, &ap);
 		}
 		else if (format[pos] != '%')
 			write(1, &format[pos], 1);
