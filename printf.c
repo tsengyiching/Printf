@@ -20,33 +20,23 @@ void	put_index(char *tab_index)
 	tab_index[1] = 's';
 	tab_index[2] = 'd';
 	tab_index[3] = 0;
+}	
+
+int		find_index(char *tab_index, char element)
+{
+	int i;
+
+	i = 0;
+	while (tab_index[i])
+	{
+		if (tab_index[i] == element)
+			return (i);
+		i++;
+	}
+	return (-1);
 }
 
-// void	put_width(char c)
-// {
-// 	t_struct save;
-// 	int i;
-// 	int width;
-
-// 	i = 0;
-// 	width = 0;
-// 	while (format[pos] >= '0' && format[pos] <= '9')
-// 		save.str[i++] = format[pos++];
-// 	save.str[i] = 0;
-// 	width = ft_atoi(save.str) - 1;
-// 	while (width > 0)
-// 	{
-// 		write(1, " ", 1);
-// 		width--;
-// 	}
-// }                                                       
-
-// void	ft_analyze(char *str)
-// {
-
-// }	
-
-void	apply_conversions(int temp, va_list *ap)
+void	apply_conversions(int index, va_list *ap)
 {
 	void 	(*ptr_function[3]) (va_list *);
 
@@ -54,41 +44,57 @@ void	apply_conversions(int temp, va_list *ap)
 	ptr_function[1] = &printf_str;
 	ptr_function[2] = &printf_nbr;
 
-	(*ptr_function[temp]) (ap);
+	(*ptr_function[index]) (ap);
 }
 
-int		find_index(char *tab, char element)
+void	analyse(const char *format, int *pos, va_list *ap, char *tab_index)
 {
-	int index;
+	t_struct 	save;
+	int 		width;
+	int 		index;
+	char		*temp;
+	char		*temp2;
 
-	index = 0;
-	while (tab[index])
+	if ((index = find_index(tab_index, format[*pos])) == -1)
 	{
-		if (tab[index] == element)
-			return (index);
-		index++;
+		save.str = ft_strdup("");
+		while (format[*pos] >= '0' && format[*pos] <= '9')
+		{
+			temp = ft_substr(format, *pos, 1);
+			temp2 = ft_strjoin(save.str, temp);
+			free(temp);
+			free(save.str);
+			save.str = temp2;
+			(*pos)++;
+		}
+		width = ft_atoi(save.str) - 1;
+		while (width > 0)
+		{
+			write(1, " ", 1);
+			width--;
+		}
+		//free(save.str);
 	}
-	return (-1);
+	if ((index = find_index(tab_index, format[*pos])) != -1)
+		apply_conversions(index, ap);
+	//free(temp);
+	free(save.str);
 }
 
 int		ft_printf(const char *format, ...)
 {
-	char	tab_index[4];
-	va_list ap;
-	int 	pos;
-	int		temp;
+	char		tab_index[4];
+	va_list 	ap;
+	int 		pos;
 
 	pos = 0;
-	temp = 0;
 	put_index(tab_index);
 	va_start(ap, format);
 	while (format[pos])
 	{
 		if (pos != 0 && format[pos - 1] == '%')
 		{
-			temp = find_index(tab_index, format[pos]);
-			if (temp != -1)
-				apply_conversions(temp, &ap);
+			analyse(format, &pos, &ap, tab_index);
 		}
 		else if (format[pos] != '%')
 			write(1, &format[pos], 1);

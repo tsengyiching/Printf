@@ -17,10 +17,10 @@
 # include <stdio.h>
 # include <unistd.h>
 
-// typedef struct		s_struct
-// {
-//     char    *str;
-// }					t_struct;
+typedef struct		s_struct
+{
+    char    *str;
+}					t_struct;
 
 void	printf_char(va_list *ap);
 void	printf_str(va_list *ap);
