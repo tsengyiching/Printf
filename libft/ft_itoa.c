@@ -39,13 +39,13 @@ char	*ft_itoa(int n)
 	return (str);
 }
 
-int main()
-{
-	int n = -1000;
-	while (n <= 1000)
-	{
-		printf("%s\n");
-		n++;
-	}
-	return (0);
-}
+// int main()
+// {
+// 	int n = -1000;
+// 	while (n <= 1000)
+// 	{
+// 		printf("%s\n");
+// 		n++;
+// 	}
+// 	return (0);
+// }

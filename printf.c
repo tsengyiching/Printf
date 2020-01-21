@@ -14,92 +14,87 @@
 #include "printf_libft.h"
 #include "libft/libft.h"
 
-void	put_index(char *tab_index)
-{
-	tab_index[0] = 'c';
-	tab_index[1] = 's';
-	tab_index[2] = 'd';
-	tab_index[3] = 0;
-}	
-
-int		find_index(char *tab_index, char element)
+int		find_module(const char *format)
 {
 	int i;
 
 	i = 0;
-	while (tab_index[i])
+	while (format[i])
 	{
-		if (tab_index[i] == element)
+		if (format[i] == '%')
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
+int		is_module(const char *format)
+{
+	int i;
+
+	i = 0;
+	while (format[i])
+	{
+		if (format[i] == '%')
 			return (i);
 		i++;
 	}
 	return (-1);
 }
 
-void	apply_conversions(int index, va_list *ap)
+int		ft_flags(const char *format, int *pos, t_struct *flags)
 {
-	void 	(*ptr_function[3]) (va_list *);
-
-	ptr_function[0] = &printf_char;
-	ptr_function[1] = &printf_str;
-	ptr_function[2] = &printf_nbr;
-
-	(*ptr_function[index]) (ap);
+	// if (format[pos] == '-')
+	// 	return();
+	// else if (format[pos] == '0')
+	// 	return();
+	if (format[*pos] >= '1' && format[*pos] <= '9')
+		return(ft_space(format, pos, flags));
+	// else if (format[pos] == '.')
+	// 	return();
+	// else if (format[pos] == '*')
+	// 	return();
+	return (-1);
 }
 
-void	analyse(const char *format, int *pos, va_list *ap, char *tab_index)
+int		ft_printf_parse(const char *format, t_struct *flags, va_list *ap)
 {
-	t_struct 	save;
-	int 		width;
-	int 		index;
-	char		*temp;
-	char		*temp2;
+	int		len;
+	int		pos;
+	char	tab_index[4];
+	int		index;
+	int 	i;
 
-	if ((index = find_index(tab_index, format[*pos])) == -1)
+	if (!find_module(format))
 	{
-		save.str = ft_strdup("");
-		while (format[*pos] >= '0' && format[*pos] <= '9')
-		{
-			temp = ft_substr(format, *pos, 1);
-			temp2 = ft_strjoin(save.str, temp);
-			free(temp);
-			free(save.str);
-			save.str = temp2;
-			(*pos)++;
-		}
-		width = ft_atoi(save.str) - 1;
-		while (width > 0)
-		{
-			write(1, " ", 1);
-			width--;
-		}
-		//free(save.str);
+		ft_putstr_fd((char *)format, 1);
+		len = ft_strlen(format);
 	}
-	if ((index = find_index(tab_index, format[*pos])) != -1)
-		apply_conversions(index, ap);
-	//free(temp);
-	free(save.str);
+	else
+	{
+		put_index(tab_index);
+		if ((len = is_module(format)) != -1)
+		{
+			write(1, format, len);
+		}
+		pos = len + 1;
+		i = ft_flags(format, &pos, flags);
+		index = find_index(tab_index, format[pos]);
+		if (index != -1)
+			apply_conversions(index, ap);
+	}
+	return (len);   //need to add the size of results
 }
 
 int		ft_printf(const char *format, ...)
 {
-	char		tab_index[4];
 	va_list 	ap;
-	int 		pos;
+	t_struct	flags;
+	int			len;
 
-	pos = 0;
-	put_index(tab_index);
 	va_start(ap, format);
-	while (format[pos])
-	{
-		if (pos != 0 && format[pos - 1] == '%')
-		{
-			analyse(format, &pos, &ap, tab_index);
-		}
-		else if (format[pos] != '%')
-			write(1, &format[pos], 1);
-		pos++;
-	}
+	ft_memset((void*)&flags, -1, sizeof(t_struct));
+	len = ft_printf_parse(format, &flags, &ap);
 	va_end(ap);
-	return (0);
+	return (len);   //need to add the size of results
 }

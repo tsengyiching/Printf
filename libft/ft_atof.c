@@ -1,4 +1,4 @@
-nt		ft_atoi(const char *str)
+int		ft_atof(const char *str)
 {
 	long int	sign;
 	long int	res;
