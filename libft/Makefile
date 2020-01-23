@@ -6,7 +6,7 @@
 #    By: yictseng <marvin@le-101.fr>                +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/10/11 13:29:38 by yictseng     #+#   ##    ##    #+#        #
-#    Updated: 2019/10/31 15:22:31 by yictseng    ###    #+. /#+    ###.fr      #
+#    Updated: 2020/01/22 16:04:55 by yictseng    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -15,7 +15,8 @@ NAME		= libft.a
 
 HEADER 		= libft.h
 
-SRCS		= ft_atoi.c\
+SRCS		= ft_atof.c\
+			  ft_atoi.c\
 			  ft_bzero.c\
 			  ft_isalnum.c\
 			  ft_isalpha.c\
@@ -61,9 +62,9 @@ SRCSB		= ft_lstlast_bonus.c\
 			  ft_lstiter_bonus.c\
 			  ft_lstmap_bonus.c\
 
-OBJSB		= ${SRCSB:.c=.o}
+OBJSB		= $(SRCSB:.c=.o)
 
-OBJS		= ${SRCS:.c=.o}
+OBJS		= $(SRCS:.c=.o)
 
 CC			= gcc
 
@@ -82,13 +83,13 @@ bonus		: $(OBJS) $(OBJSB)
 			  ranlib $(NAME)
 
 %.o			: %.c $(HEADER)
-			  ${CC} ${CFLAGS} -c $< -I ${HEADER}
+			  $(CC) $(CFLAGS) -c $< -I $(HEADER)
 
 clean		:
-			  ${RM} $(OBJS) $(OBJSB)
+			  $(RM) $(OBJS) $(OBJSB)
 
 fclean		: clean
-			  ${RM} $(NAME)
+			  $(RM) $(NAME)
 
 re			: fclean all
 
