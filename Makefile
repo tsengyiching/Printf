@@ -30,7 +30,7 @@ SRCS		= ft_printf.c\
 			  conversion_s.c\
 			  conversion_d.c\
 
-OBJS 		= 	$(SRCS:.c=.o)
+OBJS 		= $(SRCS:.c=.o)
 
 CC 			= gcc
 
@@ -51,7 +51,7 @@ $(NAME)		: $(OBJS) $(HEADER)
 $(LIB)		: 		
 			  @$(MAKE) -C libft all
 
-%.o			: %.c $(HEADER)
+%.o			: %.c $(HEADER) $(LIBS)
 			  $(CC) $(CFLAGS) -c $< -I $(HEADER)
 
 clean		:
