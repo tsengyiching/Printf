@@ -3,7 +3,7 @@
 
 int		main(void)
 {
-	ft_printf("print char : [%50c]\n  second : [%5c]\n", 'a', 'A');
+	ft_printf("print char : [%20c]\n  second : [%-5c]\n", 'a', 'A');
 	//printf("print char: [%5c] [%10c]\n", 'a', 'y');
 	//ft_printf("print string : %s\n", "hello");
 	// printf("print nb: %d %c \n", 42, 'a');

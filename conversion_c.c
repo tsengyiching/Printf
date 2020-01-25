@@ -16,17 +16,29 @@
 
 void	printf_char(va_list *ap, t_struct *flags)
 {
-	char c;
+	char	c;
+	int 	i;
 
 	c = va_arg(*ap, int);
+	i = 0;
 	if (flags->space != -1)
 	{
-		while (flags->space > 0)
+		while (i < flags->space)
     	{
         	write(1, " ", 1);
-        	(flags->space)--;
+        	i++;
     	}
 		write(1, &c, 1);
+	}
+	else if (flags->left_justify != -1)
+	{
+		write(1, &c, 1);
+		i = 0;
+		while (i < flags->space)
+    	{
+        	write(1, " ", 1);
+        	i++;
+    	}
 	}
 	else
 		write(1, &c, 1);

@@ -30,8 +30,8 @@ int		is_module(const char *format)
 
 int		ft_flags(const char *format, int *pos, t_struct *flags)
 {
-	// if (format[pos] == '-')
-	// 	return();
+	if (format[*pos] == '-')
+	 	return(ft_left_justify(format, pos, flags));
 	// else if (format[pos] == '0')
 	// 	return();
 	if (format[*pos] >= '1' && format[*pos] <= '9')
@@ -40,6 +40,9 @@ int		ft_flags(const char *format, int *pos, t_struct *flags)
 	// 	return();
 	// else if (format[pos] == '*')
 	// 	return();
+
+	printf("left : %d\n", flags->left_justify);
+	printf("space : %d\n", flags->space);
 	return (-1);
 }
 
@@ -60,9 +63,7 @@ int		ft_printf_parse(const char *format, t_struct *flags, va_list *ap)
 	{
 		pos++;
 		while (tmp != -1)
-		{
 			tmp = ft_flags(format, &pos, flags);
-		}
 		if ((index = find_index(tab_index, format[pos])) != -1)
 		{
 			apply_conversions(index, ap, flags);

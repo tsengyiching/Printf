@@ -34,3 +34,9 @@ int     ft_space(const char *format, int *pos, t_struct *flags)
     flags->space = get_int(format, pos) - 1;
     return (1);
 }
+
+int		ft_left_justify(const char *format, int *pos, t_struct *flags)
+{
+	flags->left_justify = get_int(format, pos) - 1;
+	return (1);
+}
