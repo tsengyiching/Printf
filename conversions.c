@@ -36,12 +36,12 @@ int		find_index(char *tab_index, char element)
 	return (-1);
 }
 
-void	apply_conversions(int index, va_list *ap)
+void	apply_conversions(int index, va_list *ap, t_struct *flags)
 {
-	void 	(*ptr_function[3]) (va_list *);
+	void 	(*ptr_function[3]) (va_list *, t_struct *);
     ptr_function[0] = &printf_char;
-	ptr_function[1] = &printf_str;
-	ptr_function[2] = &printf_nbr;
+	// ptr_function[1] = &printf_str;
+	// ptr_function[2] = &printf_nbr;
 
-    (*ptr_function[index]) (ap);
+    (*ptr_function[index]) (ap, flags);
 }

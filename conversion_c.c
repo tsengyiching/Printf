@@ -14,10 +14,20 @@
 #include "ft_libft_printf.h"
 #include "libft/libft.h"
 
-void	printf_char(va_list *ap)
+void	printf_char(va_list *ap, t_struct *flags)
 {
 	char c;
 
 	c = va_arg(*ap, int);
-	write(1, &c, 1);
+	if (flags->space != -1)
+	{
+		while (flags->space > 0)
+    	{
+        	write(1, " ", 1);
+        	(flags->space)--;
+    	}
+		write(1, &c, 1);
+	}
+	else
+		write(1, &c, 1);
 }

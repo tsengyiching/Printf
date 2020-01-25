@@ -26,12 +26,12 @@ typedef struct		s_struct
     int             star; // rename
 }					t_struct;
 
-void	printf_char(va_list *ap);
-void	printf_str(va_list *ap);
-void	printf_nbr(va_list *ap);
+void	printf_char(va_list *ap, t_struct *flags);
+// void	printf_str(va_list *ap, t_struct *flags);
+// void	printf_nbr(va_list *ap, t_struct *flags);
 void	put_index(char *tab_index);
 int		find_index(char *tab_index, char element);
-void	apply_conversions(int index, va_list *ap);
+void	apply_conversions(int index, va_list *ap, t_struct *flags);
 int		get_int(const char *str, int *pos);
 int     ft_space(const char *format, int *pos, t_struct *flags);
 int		ft_printf(const char *format,

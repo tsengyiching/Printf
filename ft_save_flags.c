@@ -19,7 +19,7 @@ int		get_int(const char *str, int *pos)
 	long int	res;
 
 	res = 0;
-	if (str[*pos] == '-')
+	if (str[*pos] == '-' || str[*pos] == '%')
 		(*pos)++;
 	while (str[*pos] >= '0' && str[*pos] <= '9')
 	{
@@ -31,11 +31,6 @@ int		get_int(const char *str, int *pos)
 
 int     ft_space(const char *format, int *pos, t_struct *flags)
 {
-    flags->space = get_int(format, pos);
-    while (flags->space > 0)
-    {
-        write(1, " ", 1);
-        (flags->space)--;
-    }
+    flags->space = get_int(format, pos) - 1;
     return (1);
 }

@@ -14,20 +14,6 @@
 #include "ft_libft_printf.h"
 #include "libft/libft.h"
 
-int		find_module(const char *format)
-{
-	int i;
-
-	i = 0;
-	while (format[i])
-	{
-		if (format[i] == '%')
-			return (1);
-		i++;
-	}
-	return (0);
-}
-
 int		is_module(const char *format)
 {
 	int i;
@@ -39,7 +25,7 @@ int		is_module(const char *format)
 			return (i);
 		i++;
 	}
-	return (-1);
+	return (i);
 }
 
 int		ft_flags(const char *format, int *pos, t_struct *flags)
@@ -59,29 +45,35 @@ int		ft_flags(const char *format, int *pos, t_struct *flags)
 
 int		ft_printf_parse(const char *format, t_struct *flags, va_list *ap)
 {
-	int		len;
-	int		pos;
 	char	tab_index[4];
+	int		pos;
 	int		index;
 	int 	i;
+	int		tmp;
 
-	if (!find_module(format))
+	put_index(tab_index);
+	pos = is_module(format);
+	write(1, format, pos);
+	i = 0;
+	tmp = 0;
+	while (format[pos])
 	{
-		ft_putstr_fd((char *)format, 1);
-		len = ft_strlen(format);
+		pos++;
+		while (tmp != -1)
+		{
+			tmp = ft_flags(format, &pos, flags);
+		}
+		if ((index = find_index(tab_index, format[pos])) != -1)
+		{
+			apply_conversions(index, ap, flags);
+			pos++;
+		}
+		tmp = 0;
+		i = is_module(format + pos);
+		write(1, format + pos, i);
+		pos = pos + i;
 	}
-	else
-	{
-		put_index(tab_index);
-		if ((len = is_module(format)) != -1)
-			write(1, format, len);
-		pos = len + 1;
-		i = ft_flags(format, &pos, flags);
-		index = find_index(tab_index, format[pos]);
-		if (index != -1)
-			apply_conversions(index, ap);
-	}
-	return (len);   //need to add the size of results
+	return (pos);   //need to add the size of results
 }
 
 int		ft_printf(const char *format, ...)
