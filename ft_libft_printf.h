@@ -14,7 +14,7 @@
 #ifndef FT_LIBFT_PRINTF_H
 # define FT_LIBFT_PRINTF_H
 # include <stdarg.h>
-# include <stdio.h>
+# include <stdio.h> // test only
 # include <unistd.h>
 
 int		ft_printf(const char *format,
@@ -23,15 +23,15 @@ int		ft_printf(const char *format,
 typedef struct		s_struct
 {
     int             space;
-    int             left_justify;
+    int             left; //rename
     int             zero;
     int             precision;
     int             star; // rename
 }					t_struct;
 
 void	printf_char(va_list *ap, t_struct *flags);
-// void	printf_str(va_list *ap, t_struct *flags);
-// void	printf_nbr(va_list *ap, t_struct *flags);
+void	printf_str(va_list *ap, t_struct *flags);
+void	printf_nbr(va_list *ap, t_struct *flags);
 void	put_index(char *tab_index);
 int		find_index(char *tab_index, char element);
 void	apply_conversions(int index, va_list *ap, t_struct *flags);

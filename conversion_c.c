@@ -23,18 +23,17 @@ void	printf_char(va_list *ap, t_struct *flags)
 	i = 0;
 	if (flags->space != -1)
 	{
-		while (i < flags->space)
+		while (i < flags->space - 1)
     	{
         	write(1, " ", 1);
         	i++;
     	}
 		write(1, &c, 1);
 	}
-	else if (flags->left_justify != -1)
+	else if (flags->left != -1)
 	{
 		write(1, &c, 1);
-		i = 0;
-		while (i < flags->space)
+		while (i < flags->left - 1)
     	{
         	write(1, " ", 1);
         	i++;

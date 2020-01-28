@@ -3,7 +3,12 @@
 
 int		main(void)
 {
-	ft_printf("print char : [%20c]\n  second : [%-5c]\n", 'a', 'A');
+	//ft_printf("my print : [%0c]\n", 'a');
+	ft_printf("my print : [%-10s]\n", "hello");
+	printf("-- print : [%-10s]\n", "hello");
+	//printf("-- print : %10s\n", "hello");
+	//printf("print : %10.3s\n", "hello");
+	//printf("-print char : [%*.c]", '10', 'A');
 	//printf("print char: [%5c] [%10c]\n", 'a', 'y');
 	//ft_printf("print string : %s\n", "hello");
 	// printf("print nb: %d %c \n", 42, 'a');
@@ -14,5 +19,7 @@ int		main(void)
 	// printf("%1c\n", 'y');
 	// int i = -2147483648;
 	// printf("%d\n", i);
+	// printf("%d\n", ft_printf("4caractere 1 %12c caractere 2 %12c\n", 'a', 'c'));
+	// printf("%d\n", printf("4caractere 1 %12c caractere 2 %12c\n", 'a', 'c'));
 	return (0);
 }

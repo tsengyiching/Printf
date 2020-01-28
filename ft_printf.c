@@ -34,15 +34,12 @@ int		ft_flags(const char *format, int *pos, t_struct *flags)
 	 	return(ft_left_justify(format, pos, flags));
 	// else if (format[pos] == '0')
 	// 	return();
-	if (format[*pos] >= '1' && format[*pos] <= '9')
+	else if (format[*pos] >= '1' && format[*pos] <= '9')
 		return(ft_space(format, pos, flags));
 	// else if (format[pos] == '.')
 	// 	return();
 	// else if (format[pos] == '*')
 	// 	return();
-
-	printf("left : %d\n", flags->left_justify);
-	printf("space : %d\n", flags->space);
 	return (-1);
 }
 
@@ -72,6 +69,7 @@ int		ft_printf_parse(const char *format, t_struct *flags, va_list *ap)
 		tmp = 0;
 		i = is_module(format + pos);
 		write(1, format + pos, i);
+		ft_memset((void*)flags, -1, sizeof(t_struct));
 		pos = pos + i;
 	}
 	return (pos);   //need to add the size of results
