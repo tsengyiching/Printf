@@ -31,12 +31,18 @@ int		get_int(const char *str, int *pos)
 
 int     ft_space(const char *format, int *pos, t_struct *flags)
 {
-    flags->space = get_int(format, pos);
+    flags->width = get_int(format, pos);
     return (1);
 }
 
 int		ft_left_justify(const char *format, int *pos, t_struct *flags)
 {
 	flags->left = get_int(format, pos);
+	return (1);
+}
+
+int		ft_precision(const char *format, int *pos, t_struct *flags)
+{
+	flags->precision = get_int(format, pos);
 	return (1);
 }

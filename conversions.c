@@ -14,6 +14,12 @@
 #include "ft_libft_printf.h"
 #include "libft/libft.h"
 
+void	ft_write(char c, t_struct *flags)
+{
+	write(1, &c, 1);
+	flags->value++;
+}
+
 void	put_index(char *tab_index)
 {
 	tab_index[0] = 'c';
@@ -41,7 +47,7 @@ void	apply_conversions(int index, va_list *ap, t_struct *flags)
 	void 	(*ptr_function[3]) (va_list *, t_struct *);
     ptr_function[0] = &printf_char;
 	ptr_function[1] = &printf_str;
-	ptr_function[2] = &printf_nbr;
+	//ptr_function[2] = &printf_nbr;
 
     (*ptr_function[index]) (ap, flags);
 }

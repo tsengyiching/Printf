@@ -14,6 +14,19 @@
 #include "ft_libft_printf.h"
 #include "libft/libft.h"
 
+//need to put write_space function to another file
+void	write_space(int nb)
+{
+	int		i;
+
+	i = 0;
+	while (i < nb)
+	{
+		write(1, " ", 1);
+		i++;
+	}
+}
+
 void	printf_str(va_list *ap, t_struct *flags)
 {
 	char	*str;
@@ -23,24 +36,18 @@ void	printf_str(va_list *ap, t_struct *flags)
 	str = va_arg(*ap, char *);
 	len = ft_strlen(str);
 	i = 0;
-	if (flags->space != -1 && flags->space > len)
+	if (flags->width != -1 && flags->width > len)
 	{
-		while (i < flags->space - len)
-		{
-			write(1, " ", 1);
-			i++;
-		}
+		write_space(flags->width - len);
 		write(1, str, ft_strlen(str));
 	}
 	else if (flags->left != -1 && flags->left > len)
 	{
 		write(1, str, ft_strlen(str));
-		while (i < flags->left - len)
-		{
-			write(1, " ", 1);
-			i++;
-		}
+		write_space(flags->left - len);
 	}
+	else if (flags->precision != -1 && flags->precision < len)
+		write(1, str, flags->precision);
 	else
 		write(1, str, ft_strlen(str));
 }

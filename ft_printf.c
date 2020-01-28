@@ -28,7 +28,7 @@ int		is_module(const char *format)
 	return (i);
 }
 
-int		ft_flags(const char *format, int *pos, t_struct *flags)
+int		is_flag(const char *format, int *pos, t_struct *flags)
 {
 	if (format[*pos] == '-')
 	 	return(ft_left_justify(format, pos, flags));
@@ -36,8 +36,8 @@ int		ft_flags(const char *format, int *pos, t_struct *flags)
 	// 	return();
 	else if (format[*pos] >= '1' && format[*pos] <= '9')
 		return(ft_space(format, pos, flags));
-	// else if (format[pos] == '.')
-	// 	return();
+	else if (format[*pos] == '.')
+	  	return(ft_precision(format, pos, flags));
 	// else if (format[pos] == '*')
 	// 	return();
 	return (-1);
@@ -60,7 +60,7 @@ int		ft_printf_parse(const char *format, t_struct *flags, va_list *ap)
 	{
 		pos++;
 		while (tmp != -1)
-			tmp = ft_flags(format, &pos, flags);
+			tmp = is_flag(format, &pos, flags);
 		if ((index = find_index(tab_index, format[pos])) != -1)
 		{
 			apply_conversions(index, ap, flags);
@@ -72,7 +72,7 @@ int		ft_printf_parse(const char *format, t_struct *flags, va_list *ap)
 		ft_memset((void*)flags, -1, sizeof(t_struct));
 		pos = pos + i;
 	}
-	return (pos);   //need to add the size of results
+	return (pos);
 }
 
 int		ft_printf(const char *format, ...)

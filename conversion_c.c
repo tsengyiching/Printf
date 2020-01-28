@@ -21,9 +21,9 @@ void	printf_char(va_list *ap, t_struct *flags)
 
 	c = va_arg(*ap, int);
 	i = 0;
-	if (flags->space != -1)
+	if (flags->width != -1)
 	{
-		while (i < flags->space - 1)
+		while (i < flags->width - 1)
     	{
         	write(1, " ", 1);
         	i++;

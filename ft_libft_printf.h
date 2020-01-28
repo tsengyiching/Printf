@@ -22,20 +22,22 @@ int		ft_printf(const char *format,
 
 typedef struct		s_struct
 {
-    int             space;
+    int             width;
     int             left; //rename
     int             zero;
     int             precision;
     int             star; // rename
+    int             value;
 }					t_struct;
 
 void	printf_char(va_list *ap, t_struct *flags);
 void	printf_str(va_list *ap, t_struct *flags);
-void	printf_nbr(va_list *ap, t_struct *flags);
+//void	printf_nbr(va_list *ap, t_struct *flags);
 void	put_index(char *tab_index);
 int		find_index(char *tab_index, char element);
 void	apply_conversions(int index, va_list *ap, t_struct *flags);
 int		get_int(const char *str, int *pos);
 int     ft_space(const char *format, int *pos, t_struct *flags);
 int		ft_left_justify(const char *format, int *pos, t_struct *flags);
+int		ft_precision(const char *format, int *pos, t_struct *flags);
 #endif
