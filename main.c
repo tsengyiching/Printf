@@ -3,18 +3,32 @@
 
 int		main(void)
 {
-	// printf("---------- c ----------\n");
-	// printf("\n");
+	 printf("---------- c ----------\n");
 	// ft_printf("my printf : [%c]\n", '\0');
 	// dprintf(1, "-- printf : [%c]\n", '\0');
-	// printf("\n");
+	dprintf(1, "  %d\n", ft_printf("my printf : [%10c]", 'a'));
+	dprintf(1, "  %d\n", dprintf(1,"-- printf : [%10c]", 'a'));
+	dprintf(1, "  %d\n", ft_printf("my printf : [%-10c]", 'a'));
+	dprintf(1, "  %d\n", dprintf(1,"-- printf : [%-10c]", 'a'));
 	printf("---------- s ----------\n");
-	printf("\n");
-	// ft_printf("my printf : [%-10s][%5s]\n", "hello", "hi");
+	dprintf(1, "  %d\n", ft_printf("my printf : [%s]", "hello"));
+	dprintf(1, "  %d\n", dprintf(1,"-- printf : [%s]", "hello"));
+	dprintf(1, "  %d\n", ft_printf("my printf : [%10s]", "hello"));
+	dprintf(1, "  %d\n", dprintf(1,"-- printf : [%10s]", "hello"));
+	dprintf(1, "  %d\n", ft_printf("my printf : [%-10s]", "hello"));
+	dprintf(1, "  %d\n", dprintf(1,"-- printf : [%-10s]", "hello"));
+	dprintf(1, "  %d\n", ft_printf("my printf : [%.10s]", "hello"));
+	dprintf(1, "  %d\n", dprintf(1,"-- printf : [%.10s]", "hello"));
+	dprintf(1, "  %d\n", ft_printf("my printf : [%.3s]", "hello"));
+	dprintf(1, "  %d\n", dprintf(1,"-- printf : [%.3s]", "hello"));
 	// dprintf(1, "-- printf : [%-10s][%5s]\n", "hello", "hi");
-	ft_printf("-- printf : [%20.5s]\n", "hello");
-	dprintf(1, "-- printf : [%20.5s]\n", "hello");
-	printf("\n");
+	// ft_printf("-- printf : [%20.5s]\n", "hello");
+	// dprintf(1, "-- printf : [%20.5s]\n", "hello");
+	//ft_printf("%.4s", NULL);
+	//dprintf(1, str);
+	// printf("\n");
+	// printf("---------- d ----------\n");
+	// printf("\n");
 	//printf("-- print : [%10.3s]\n", "hello");
 	//printf("-- print : %10s\n", "hello");
 	//printf("print : %10.3s\n", "hello");

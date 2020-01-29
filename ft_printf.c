@@ -14,7 +14,7 @@
 #include "ft_libft_printf.h"
 #include "libft/libft.h"
 
-int		is_module(const char *format)
+int		is_percentage(const char *format)
 {
 	int i;
 
@@ -28,22 +28,22 @@ int		is_module(const char *format)
 	return (i);
 }
 
-int		is_flag(const char *format, int *pos, t_struct *flags)
+int		is_flag(const char *format, int *pos, t_struct *box)
 {
 	if (format[*pos] == '-')
-	 	return(ft_left_justify(format, pos, flags));
+	 	return(flag_desh(format, pos, box));
 	// else if (format[pos] == '0')
 	// 	return();
 	else if (format[*pos] >= '1' && format[*pos] <= '9')
-		return(ft_space(format, pos, flags));
+		return(flag_num(format, pos, box));
 	else if (format[*pos] == '.')
-	  	return(ft_precision(format, pos, flags));
+	  	return(flag_point(format, pos, box));
 	// else if (format[pos] == '*')
 	// 	return();
 	return (-1);
 }
 
-int		ft_printf_parse(const char *format, t_struct *flags, va_list *ap)
+void	ft_printf_parse(const char *format, t_struct *box, va_list *ap)
 {
 	char	tab_index[4];
 	int		pos;
@@ -52,38 +52,37 @@ int		ft_printf_parse(const char *format, t_struct *flags, va_list *ap)
 	int		tmp;
 
 	put_index(tab_index);
-	pos = is_module(format);
-	write(1, format, pos);
+	pos = is_percentage(format);
+	ft_write(format, pos, box);
 	i = 0;
 	tmp = 0;
 	while (format[pos])
 	{
 		pos++;
 		while (tmp != -1)
-			tmp = is_flag(format, &pos, flags);
+			tmp = is_flag(format, &pos, box);
 		if ((index = find_index(tab_index, format[pos])) != -1)
 		{
-			apply_conversions(index, ap, flags);
+			apply_conversions(index, ap, box);
 			pos++;
 		}
 		tmp = 0;
-		i = is_module(format + pos);
-		write(1, format + pos, i);
-		ft_memset((void*)flags, -1, sizeof(t_struct));
+		i = is_percentage(format + pos);
+		ft_write(format + pos, i, box);
+		init_box(box);
 		pos = pos + i;
 	}
-	return (pos);
 }
 
 int		ft_printf(const char *format, ...)
 {
 	va_list 	ap;
-	t_struct	flags;
-	int			len;
+	t_struct	box;
 
 	va_start(ap, format);
-	ft_memset((void*)&flags, -1, sizeof(t_struct));
-	len = ft_printf_parse(format, &flags, &ap);
+	init_box(&box);
+	box.value = 0;
+	ft_printf_parse(format, &box, &ap);
 	va_end(ap);
-	return (len);   //need to add the size of results
+	return (box.value);   //need to add the size of results
 }
