@@ -12,7 +12,6 @@
 /* ************************************************************************** */
 
 #include "ft_libft_printf.h"
-#include "libft/libft.h"
 
 void	init_box(t_struct *box)
 {

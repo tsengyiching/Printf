@@ -12,10 +12,6 @@
 /* ************************************************************************** */
 
 #include "ft_libft_printf.h"
-#include "libft/libft.h"
-
-//need to put write_space function to another file
-
 
 int		printf_null(t_struct *box, char **str)
 {

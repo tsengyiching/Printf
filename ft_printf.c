@@ -12,7 +12,6 @@
 /* ************************************************************************** */
 
 #include "ft_libft_printf.h"
-#include "libft/libft.h"
 
 int		is_percentage(const char *format)
 {
