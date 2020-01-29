@@ -6,7 +6,7 @@
 /*   By: yictseng <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/14 17:35:01 by yictseng     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/14 17:37:24 by yictseng    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/29 20:23:59 by yictseng    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -53,8 +53,8 @@ void	write_space(int nb, t_struct *box)
 int		find_index(char *tab_index, char element)
 {
 	int i;
-    
-    i = 0;
+
+	i = 0;
 	while (tab_index[i])
 	{
 		if (tab_index[i] == element)
@@ -66,10 +66,10 @@ int		find_index(char *tab_index, char element)
 
 void	apply_conversions(int index, va_list *ap, t_struct *box)
 {
-	void 	(*ptr_function[3]) (va_list *, t_struct *);
-    ptr_function[0] = &printf_char;
+	void	(*ptr_function[3]) (va_list *, t_struct *);
+
+	ptr_function[0] = &printf_char;
 	ptr_function[1] = &printf_str;
 	//ptr_function[2] = &printf_nbr;
-
-    (*ptr_function[index]) (ap, box);
+	(*ptr_function[index])(ap, box);
 }
