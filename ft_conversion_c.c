@@ -16,11 +16,9 @@
 void	printf_char(va_list *ap, t_struct *box)
 {
 	char	c;
-	int		i;
 
 	c = va_arg(*ap, int);
 	(box->value)++;
-	i = 0;
 	if (box->width != -1)
 	{
 		write_space(box->width - 1, box);

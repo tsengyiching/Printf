@@ -27,7 +27,7 @@ int		is_percentage(const char *format)
 	return (i);
 }
 
-int		is_flag(const char *format, int *pos, t_struct *box)
+int		is_flag(const char *format, int *pos, va_list *ap, t_struct *box)
 {
 	if (format[*pos] == '-')
 	 	return(flag_desh(format, pos, box));
@@ -37,8 +37,8 @@ int		is_flag(const char *format, int *pos, t_struct *box)
 		return(flag_num(format, pos, box));
 	else if (format[*pos] == '.')
 	  	return(flag_point(format, pos, box));
-	// else if (format[pos] == '*')
-	// 	return();
+	else if (format[*pos] == '*')
+		return(flag_star(pos, ap, box));
 	return (-1);
 }
 
@@ -59,7 +59,7 @@ void	ft_printf_parse(const char *format, t_struct *box, va_list *ap)
 	{
 		pos++;
 		while (tmp != -1)
-			tmp = is_flag(format, &pos, box);
+			tmp = is_flag(format, &pos, ap, box);
 		if ((index = find_index(tab_index, format[pos])) != -1)
 		{
 			apply_conversions(index, ap, box);
