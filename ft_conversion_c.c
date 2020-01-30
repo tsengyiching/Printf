@@ -21,12 +21,12 @@ void	printf_char(va_list *ap, t_struct *box)
 	c = va_arg(*ap, int);
 	(box->value)++;
 	i = 0;
-	if (box->width != 0)
+	if (box->width != -1)
 	{
 		write_space(box->width - 1, box);
 		write(1, &c, 1);
 	}
-	else if (box->align_left != 0)
+	else if (box->align_left != -1)
 	{
 		write(1, &c, 1);
 		write_space(box->align_left - 1, box);

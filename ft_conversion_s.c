@@ -29,21 +29,57 @@ void	printf_str(va_list *ap, t_struct *box)
 	if (str == NULL)
 		len = printf_null(box, &str);
 	else
-		len = ft_strlen(str);
-	if (box->width != 0 && box->width > len)
+	 	len = ft_strlen(str);
+	if (box->width != -1)
 	{
-		write_space(box->width - len, box);
-		ft_write(str, ft_strlen(str), box);
+		if (box->precision == -1)
+		{
+			if (box->width > len)
+				write_space((box->width - len), box);
+			ft_write(str, len, box);
+		}
+		else
+		{
+			if ((box->width) <= (box->precision) && (box->precision) < len)
+				ft_write(str, box->precision, box);
+			else
+			{
+				if (box->precision >= len)
+					box->precision = len;
+				write_space((box->width) - (box->precision), box);
+				ft_write(str, box->precision, box);
+			}
+		}
 	}
-	else if (box->align_left != 0 && box->align_left > len)
+	else if (box->align_left != -1)
 	{
-		ft_write(str, ft_strlen(str), box);
-		write_space(box->align_left - len, box);
+		if (box->precision == -1)
+		{
+			ft_write(str, len, box);
+			if (box->align_left > len)
+				write_space((box->align_left - len), box);
+		}
+		else
+		{
+			if ((box->align_left) <= (box->precision) && (box->precision) < len)
+				ft_write(str, box->precision, box);
+			else
+			{
+				if (box->precision >= len)
+					box->precision = len;
+				ft_write(str, box->precision, box);
+				write_space((box->align_left) - (box->precision), box);
+			}
+		}
 	}
-	else if (box->precision != 0 && box->precision < len)
+	else if (box->precision != -1)
+	{
+		if (box->precision > len)
+			box->precision = len;
 		ft_write(str, box->precision, box);
+	}
 	else
-		ft_write(str, ft_strlen(str), box);
+		ft_write(str, len, box);
 	if (box->snull == 1)
 		free(str);
 }

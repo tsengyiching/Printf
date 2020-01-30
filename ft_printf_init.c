@@ -1,47 +1,42 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_printf_add.c                                  .::    .:/ .      .::   */
+/*   conversions.c                                    .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: yictseng <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2020/01/30 16:18:18 by yictseng     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/30 16:18:22 by yictseng    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/12/14 17:35:01 by yictseng     #+#   ##    ##    #+#       */
+/*   Updated: 2020/01/29 20:23:59 by yictseng    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "ft_libft_printf.h"
 
-void	ft_write(const char *str, int i, t_struct *box)
+void	init_box(t_struct *box)
 {
-	write(1, str, i);
-	box->value += i;
+	box->width = -1;
+	box->align_left = -1;
+	box->zero = -1;
+	box->precision = -1;
+	box->option = -1;
+	box->snull = -1;
 }
 
-void	write_space(int nb, t_struct *box)
+void	put_index(char *tab_index)
 {
-	int		i;
-
-	i = 0;
-	while (i < nb)
-	{
-		write(1, " ", 1);
-		(box->value)++;
-		i++;
-	}
+	tab_index[0] = 'c';
+	tab_index[1] = 's';
+	tab_index[2] = 'd';
+	tab_index[3] = 0;
 }
 
-int		find_index(char *tab_index, char element)
+void	apply_conversions(int index, va_list *ap, t_struct *box)
 {
-	int i;
+	void	(*ptr_function[3]) (va_list *, t_struct *);
 
-	i = 0;
-	while (tab_index[i])
-	{
-		if (tab_index[i] == element)
-			return (i);
-		i++;
-	}
-	return (-1);
+	ptr_function[0] = &printf_char;
+	ptr_function[1] = &printf_str;
+	//ptr_function[2] = &printf_nbr;
+	(*ptr_function[index])(ap, box);
 }
