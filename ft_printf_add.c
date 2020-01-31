@@ -47,28 +47,44 @@ void	write_space(int nb, t_struct *box)
 	}
 }
 
-void	ft_write_num(int n, t_struct *box)
+void	write_zero(int nb, t_struct *box)
 {
-	long int	nb;
+	int		i;
 
-	nb = n;
-	if (nb < 0)
+	i = 0;
+	while (i < nb)
 	{
-		write(1, "-", 1);
+		write(1, "0", 1);
 		(box->value)++;
-		nb = nb * -1;
-	}
-	if (nb > 9)
-	{
-		ft_write_num(nb / 10, box);
-		ft_write_num(nb % 10, box);
-	}
-	else
-	{
-		write(1, ft_itoa(nb), 1);
-		(box->value)++;
+		i++;
 	}
 }
+
+// void	ft_write_num(int n, t_struct *box)
+// {
+// 	long int	nb;
+// 	char		*str;
+
+// 	nb = n;
+// 	if (nb < 0)
+// 	{
+// 		write(1, "-", 1);
+// 		(box->value)++;
+// 		nb = nb * -1;
+// 	}
+// 	if (nb > 9)
+// 	{
+// 		ft_write_num(nb / 10, box);
+// 		ft_write_num(nb % 10, box);
+// 	}
+// 	else
+// 	{
+// 		str = ft_itoa(nb);
+// 		write(1, str, 1);
+// 		(box->value)++;
+// 		free(str);
+// 	}
+// }
 
 int		find_index(char *tab_index, char element)
 {

@@ -82,8 +82,47 @@ int		main(void)
 	
 	printf("----------------------------- d -----------------------------\n");
 	
-	dprintf(1, "  %d\n", ft_printf("1 my printf : [%d]", 42));
-	dprintf(1, "  %d\n", dprintf(1,"1 -- printf : [%d]", 42));
+	printf("------------------------- d positive-------------------------\n");
+	// ft_printf("  %d\n", ft_printf("1 my printf : [%d]", 42));
+	// dprintf(1, "  %d\n", dprintf(1, "1 -- printf : [%d]", 42));
+	// ft_printf("  %d\n", ft_printf("2 my printf : [%10d]", 42));
+	// dprintf(1, "  %d\n", dprintf(1, "2 -- printf : [%10d]", 42));
+	// ft_printf("  %d\n", ft_printf("3 my printf : [%1d]", 42));
+	// dprintf(1, "  %d\n", dprintf(1, "3 -- printf : [%1d]", 42));
+	// ft_printf("  %d\n", ft_printf("4 my printf : [%2d]", 42));
+	// dprintf(1, "  %d\n", dprintf(1, "4 -- printf : [%2d]", 42));
+	// ft_printf("  %d\n", ft_printf("5 my printf : [%-10d]", 42));
+	// dprintf(1, "  %d\n", dprintf(1, "5 -- printf : [%-10d]", 42));
+	// dprintf(1, "  %d\n", dprintf(1, "6 -- printf : [%.3d]", 12345));
+	// dprintf(1, "  %d\n", dprintf(1, "7 -- printf : [%.10d]", 12345));
+	// ft_printf("  %d\n", ft_printf("8 my printf : [%5.3d]", 12345));
+	// dprintf(1, "  %d\n", dprintf(1, "8 -- printf : [%5.3d]", 12345));
+	// ft_printf("  %d\n", ft_printf("9 my printf : [%8.10d]", 12345));
+	// dprintf(1, "  %d\n", dprintf(1, "9 -- printf : [%8.10d]", 12345));
+	dprintf(1, "  %d\n", dprintf(1, "10 -- printf : [%10.8d]", 12345));
+	dprintf(1, "  %d\n", dprintf(1, "11 -- printf : [%10.3d]", 12345));
+	dprintf(1, "  %d\n", dprintf(1, "12 -- printf : [%10.5d]", 12345));
+	dprintf(1, "  %d\n", dprintf(1, "13 -- printf : [%8.10d]", 12345));
+	dprintf(1, "  %d\n", dprintf(1, "14 -- printf : [%7.8d]", 123456789));
+	dprintf(1, "  %d\n", dprintf(1, "15 -- printf : [%7.9d]", 123456789));
+
+	printf("------------------------- d negative-------------------------\n");
+
+	dprintf(1, "  %d\n", dprintf(1, "10 -- printf : [%10.8d]", -12345));
+	dprintf(1, "  %d\n", dprintf(1, "11 -- printf : [%10.3d]", -12345));
+	dprintf(1, "  %d\n", dprintf(1, "12 -- printf : [%10.5d]", -12345));
+	dprintf(1, "  %d\n", dprintf(1, "13 -- printf : [%8.10d]", -12345));
+	dprintf(1, "  %d\n", dprintf(1, "14 -- printf : [%7.8d]", -123456789));
+	dprintf(1, "  %d\n", dprintf(1, "15 -- printf : [%7.9d]", -123456789));
+	// ft_printf("  %d\n", ft_printf("14 my printf : [%10d]", -42));
+	// dprintf(1, "  %d\n", dprintf(1, "14 -- printf : [%10d]", -42));
+	// ft_printf("  %d\n", ft_printf("15 my printf : [%3d]", -42));
+	// dprintf(1, "  %d\n", dprintf(1, "15 -- printf : [%3d]", -42));
+	// ft_printf("  %d\n", ft_printf("15 my printf : [%1d]", -42));
+	// dprintf(1, "  %d\n", dprintf(1, "15 -- printf : [%1d]", -42));
+	// dprintf(1, "  %d\n", dprintf(1, "15 -- printf : [%-10d]", -42));
+	// dprintf(1, "  %d\n", dprintf(1, "16 -- printf : [%010d]", 42));
+	// dprintf(1, "  %d\n", dprintf(1, "17 -- printf : [%010d]", -42));
 
 	printf("---------------------------- mix ----------------------------\n");
 	
