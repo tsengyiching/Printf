@@ -13,7 +13,7 @@
 
 #include "ft_libft_printf.h"
 
-void	printf_char(va_list *ap, t_struct *box)
+void	convert_char(va_list *ap, t_struct *box)
 {
 	char	c;
 

@@ -20,7 +20,7 @@ int		printf_null(t_struct *box, char **str)
 	return (6);
 }
 
-void	printf_str(va_list *ap, t_struct *box)
+void	convert_str(va_list *ap, t_struct *box)
 {
 	char	*str;
 	int		len;

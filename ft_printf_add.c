@@ -47,6 +47,29 @@ void	write_space(int nb, t_struct *box)
 	}
 }
 
+void	ft_write_num(int n, t_struct *box)
+{
+	long int	nb;
+
+	nb = n;
+	if (nb < 0)
+	{
+		write(1, "-", 1);
+		(box->value)++;
+		nb = nb * -1;
+	}
+	if (nb > 9)
+	{
+		ft_write_num(nb / 10, box);
+		ft_write_num(nb % 10, box);
+	}
+	else
+	{
+		write(1, ft_itoa(nb), 1);
+		(box->value)++;
+	}
+}
+
 int		find_index(char *tab_index, char element)
 {
 	int i;

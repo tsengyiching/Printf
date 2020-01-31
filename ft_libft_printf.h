@@ -33,9 +33,9 @@ typedef struct		s_struct
 }					t_struct;
 
 void				init_box(t_struct *box);
-void				printf_char(va_list *ap, t_struct *flags);
-void				printf_str(va_list *ap, t_struct *flags);
-//void	printf_nbr(va_list *ap, t_struct *flags);
+void				convert_char(va_list *ap, t_struct *flags);
+void				convert_str(va_list *ap, t_struct *flags);
+void				convert_nbr(va_list *ap, t_struct *flags);
 void				put_index(char *tab_index);
 int					find_index(char *tab_index, char element);
 void				apply_conversions(int index, va_list *ap, t_struct *flags);
@@ -47,4 +47,5 @@ int					flag_desh(const char *format, int *pos, t_struct *flags);
 int					flag_point(const char *format, int *pos, t_struct *flags);
 int					flag_star(int *pos, va_list *ap, t_struct *box);
 int					printf_null(t_struct *flags, char **str);
+void				ft_write_num(int n, t_struct *box);
 #endif

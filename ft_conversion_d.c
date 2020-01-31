@@ -12,12 +12,12 @@
 /* ************************************************************************** */
 
 #include "ft_libft_printf.h"
-#include "libft/libft.h"
 
-void	printf_nbr(va_list *ap, t_struct *box)
+void	convert_nbr(va_list *ap, t_struct *box)
 {
 	int nb;
 
 	nb = va_arg(*ap, int);
-	ft_putnbr_fd(nb, 1);
+
+	ft_write_num(nb, box);
 }
