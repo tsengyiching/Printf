@@ -6,7 +6,7 @@
 /*   By: yictseng <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/14 17:35:01 by yictseng     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/14 17:37:24 by yictseng    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/31 22:27:27 by yictseng    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -30,15 +30,15 @@ int		is_percentage(const char *format)
 int		is_flag(const char *format, int *pos, va_list *ap, t_struct *box)
 {
 	if (format[*pos] == '-')
-	 	return(flag_desh(format, pos, box));
+		return (flag_desh(format, pos, box));
 	else if (format[*pos] == '0')
-	 	return(flag_zero(format, pos, box));
+		return (flag_zero(format, pos, box));
 	else if (format[*pos] >= '1' && format[*pos] <= '9')
-		return(flag_num(format, pos, box));
+		return (flag_num(format, pos, box));
 	else if (format[*pos] == '.')
-	  	return(flag_point(format, pos, box));
+		return (flag_point(format, pos, box));
 	else if (format[*pos] == '*')
-		return(flag_star(pos, ap, box));
+		return (flag_star(pos, ap, box));
 	return (-1);
 }
 
@@ -47,7 +47,7 @@ void	ft_printf_parse(const char *format, t_struct *box, va_list *ap)
 	char	tab_index[4];
 	int		pos;
 	int		index;
-	int 	i;
+	int		i;
 	int		tmp;
 
 	put_index(tab_index);
@@ -75,7 +75,7 @@ void	ft_printf_parse(const char *format, t_struct *box, va_list *ap)
 
 int		ft_printf(const char *format, ...)
 {
-	va_list 	ap;
+	va_list		ap;
 	t_struct	box;
 
 	va_start(ap, format);

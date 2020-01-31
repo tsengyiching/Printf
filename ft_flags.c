@@ -6,17 +6,17 @@
 /*   By: yictseng <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/21 17:44:50 by yictseng     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/21 17:44:53 by yictseng    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/31 22:23:13 by yictseng    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "ft_libft_printf.h"
 
-int     flag_num(const char *format, int *pos, t_struct *box)
+int		flag_num(const char *format, int *pos, t_struct *box)
 {
-    box->width = get_int(format, pos);
-    return (1);
+	box->width = get_int(format, pos);
+	return (1);
 }
 
 int		flag_desh(const char *format, int *pos, t_struct *box)
@@ -31,9 +31,9 @@ int		flag_point(const char *format, int *pos, t_struct *box)
 	return (1);
 }
 
-int		flag_star(int *pos, va_list *ap,t_struct *box)
+int		flag_star(int *pos, va_list *ap, t_struct *box)
 {
-	int 	i;
+	int		i;
 
 	i = 0;
 	if (box->width == -1 && box->option == -1 && box->precision != 0)
