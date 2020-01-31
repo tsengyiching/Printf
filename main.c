@@ -10,8 +10,8 @@ int		main(void)
 	// dprintf(1, "  %d\n", dprintf(1,"-- printf : [%10c]", 'a'));
 	// dprintf(1, "  %d\n", ft_printf("my printf : [%-10c]", 'a'));
 	// dprintf(1, "  %d\n", dprintf(1,"-- printf : [%-10c]", 'a'));
-	dprintf(1, "  %d\n", ft_printf("my printf : [%*c]", 5, 'a'));
-	dprintf(1, "  %d\n", dprintf(1,"-- printf : [%*c]", 5, 'a'));
+	dprintf(1, "  %d\n", ft_printf("my printf : [%*c]", -5, 0));
+	dprintf(1, "  %d\n", dprintf(1,"-- printf : [%*c]", -5, 0));
 	dprintf(1, "  %d\n", ft_printf("my printf : [%*c]", -5, 'a'));
 	dprintf(1, "  %d\n", dprintf(1,"-- printf : [%*c]", -5, 'a'));
 	printf("---------- s ----------\n");
@@ -73,8 +73,8 @@ int		main(void)
 	// dprintf(1, "  %d\n", dprintf(1,"36 -- printf : [%10.*s]", 1, "bonjour"));
 	// dprintf(1, "  %d\n", ft_printf("37 my printf : [%*.5s]", 10, "bonjour"));
 	// dprintf(1, "  %d\n", dprintf(1,"37 -- printf : [%*.5s]", 10, "bonjour"));
-	dprintf(1, "  %d\n", ft_printf("38 my printf : [%*.5s]", -10, "bonjour"));
-	dprintf(1, "  %d\n", dprintf(1,"38 -- printf : [%*.5s]", -10, "bonjour"));
+	dprintf(1, "  %d\n", ft_printf("38 my printf : [%*.2s]", 10, NULL));
+	dprintf(1, "  %d\n", dprintf(1,"38 -- printf : [%*.2s]", 10, NULL));
 	dprintf(1, "  %d\n", ft_printf("38 my printf : [%*.*s]", -10, 5, "bonjour"));
 	dprintf(1, "  %d\n", dprintf(1,"38 -- printf : [%*.*s]", -10, 5, "bonjour"));
 	// dprintf(1, "  %d\n", ft_printf("31 my printf : [%.20s]%10s%-5s", "hello", "bonjour", "hi"));

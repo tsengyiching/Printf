@@ -13,6 +13,21 @@
 
 #include "ft_libft_printf.h"
 
+int		get_int(const char *str, int *pos)
+{
+	long int	res;
+
+	res = 0;
+	if (str[*pos] == '-' || str[*pos] == '%' || str[*pos] == '.')
+		(*pos)++;
+	while (str[*pos] >= '0' && str[*pos] <= '9')
+	{
+		res = res * 10 + (str[*pos] - '0');
+		(*pos)++;
+	}
+	return (res);
+}
+
 void	ft_write(const char *str, int i, t_struct *box)
 {
 	write(1, str, i);
