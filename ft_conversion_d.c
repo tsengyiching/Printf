@@ -27,17 +27,17 @@ void	convert_nbr(va_list *ap, t_struct *box)
 		if (box->precision == -1)
 		{
 			if (box->width > len)
-				write_space((box->width - len), box);
-			ft_write((const char *)tmp, len, box);
+				write_spaces((box->width - len), box);
+			write_words((const char *)tmp, len, box);
 		}
 		else
 		{
 			if ((box->precision) > len)
-				write_zero(box->precision - len, box);
-			ft_write((const char *)tmp, len, box);
+				write_zeros(box->precision - len, box);
+			write_words((const char *)tmp, len, box);
 		}
 	}
 	else
-		ft_write((const char *)tmp, len, box);
+		write_words((const char *)tmp, len, box);
 	free(tmp);
 }

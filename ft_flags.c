@@ -53,3 +53,9 @@ int		flag_star(int *pos, va_list *ap,t_struct *box)
 	(*pos)++;
 	return (1);
 }
+
+int		flag_zero(const char *format, int *pos, t_struct *box)
+{
+	box->zero = get_int(format, pos);
+	return (1);
+}

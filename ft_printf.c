@@ -31,8 +31,8 @@ int		is_flag(const char *format, int *pos, va_list *ap, t_struct *box)
 {
 	if (format[*pos] == '-')
 	 	return(flag_desh(format, pos, box));
-	// else if (format[pos] == '0')
-	// 	return();
+	else if (format[*pos] == '0')
+	 	return(flag_zero(format, pos, box));
 	else if (format[*pos] >= '1' && format[*pos] <= '9')
 		return(flag_num(format, pos, box));
 	else if (format[*pos] == '.')
@@ -52,7 +52,7 @@ void	ft_printf_parse(const char *format, t_struct *box, va_list *ap)
 
 	put_index(tab_index);
 	pos = is_percentage(format);
-	ft_write(format, pos, box);
+	write_words(format, pos, box);
 	i = 0;
 	tmp = 0;
 	while (format[pos])
@@ -67,7 +67,7 @@ void	ft_printf_parse(const char *format, t_struct *box, va_list *ap)
 		}
 		tmp = 0;
 		i = is_percentage(format + pos);
-		ft_write(format + pos, i, box);
+		write_words(format + pos, i, box);
 		init_box(box);
 		pos = pos + i;
 	}
@@ -83,5 +83,5 @@ int		ft_printf(const char *format, ...)
 	box.value = 0;
 	ft_printf_parse(format, &box, &ap);
 	va_end(ap);
-	return (box.value);   //need to add the size of results
+	return (box.value);
 }

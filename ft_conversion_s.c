@@ -35,19 +35,19 @@ void	convert_str(va_list *ap, t_struct *box)
 		if (box->precision == -1)
 		{
 			if (box->width > len)
-				write_space((box->width - len), box);
-			ft_write(str, len, box);
+				write_spaces((box->width - len), box);
+			write_words(str, len, box);
 		}
 		else
 		{
 			if ((box->width) <= (box->precision) && (box->precision) < len)
-				ft_write(str, box->precision, box);
+				write_words(str, box->precision, box);
 			else
 			{
 				if (box->precision >= len)
 					box->precision = len;
-				write_space((box->width) - (box->precision), box);
-				ft_write(str, box->precision, box);
+				write_spaces((box->width) - (box->precision), box);
+				write_words(str, box->precision, box);
 			}
 		}
 	}
@@ -55,20 +55,20 @@ void	convert_str(va_list *ap, t_struct *box)
 	{
 		if (box->precision == -1)
 		{
-			ft_write(str, len, box);
+			write_words(str, len, box);
 			if (box->align_left > len)
-				write_space((box->align_left - len), box);
+				write_spaces((box->align_left - len), box);
 		}
 		else
 		{
 			if ((box->align_left) <= (box->precision) && (box->precision) < len)
-				ft_write(str, box->precision, box);
+				write_words(str, box->precision, box);
 			else
 			{
 				if (box->precision >= len)
 					box->precision = len;
-				ft_write(str, box->precision, box);
-				write_space((box->align_left) - (box->precision), box);
+				write_words(str, box->precision, box);
+				write_spaces((box->align_left) - (box->precision), box);
 			}
 		}
 	}
@@ -76,10 +76,10 @@ void	convert_str(va_list *ap, t_struct *box)
 	{
 		if (box->precision > len)
 			box->precision = len;
-		ft_write(str, box->precision, box);
+		write_words(str, box->precision, box);
 	}
 	else
-		ft_write(str, len, box);
+		write_words(str, len, box);
 	if (box->snull == 1)
 		free(str);
 }

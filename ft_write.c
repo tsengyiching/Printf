@@ -1,44 +1,46 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_printf_add.c                                  .::    .:/ .      .::   */
+/*   ft_write.c                                       .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: yictseng <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2020/01/30 16:18:18 by yictseng     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/30 16:18:22 by yictseng    ###    #+. /#+    ###.fr     */
+/*   Created: 2020/01/31 22:01:38 by yictseng     #+#   ##    ##    #+#       */
+/*   Updated: 2020/01/31 22:01:40 by yictseng    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "ft_libft_printf.h"
 
-int		get_int(const char *str, int *pos)
+void	write_words(const char *str, int i, t_struct *box)
 {
-	long int	res;
-
-	res = 0;
-	if (str[*pos] == '-' || str[*pos] == '%' || str[*pos] == '.'
-		|| str[*pos] == '0')
-		(*pos)++;
-	while (str[*pos] >= '0' && str[*pos] <= '9')
-	{
-		res = res * 10 + (str[*pos] - '0');
-		(*pos)++;
-	}
-	return (res);
+	write(1, str, i);
+	box->value += i;
 }
 
-int		find_index(char *tab_index, char element)
+void	write_spaces(int nb, t_struct *box)
 {
-	int i;
+	int		i;
 
 	i = 0;
-	while (tab_index[i])
+	while (i < nb)
 	{
-		if (tab_index[i] == element)
-			return (i);
+		write(1, " ", 1);
+		(box->value)++;
 		i++;
 	}
-	return (-1);
+}
+
+void	write_zeros(int nb, t_struct *box)
+{
+	int		i;
+
+	i = 0;
+	while (i < nb)
+	{
+		write(1, "0", 1);
+		(box->value)++;
+		i++;
+	}
 }
