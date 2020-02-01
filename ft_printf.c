@@ -30,7 +30,7 @@ int		is_percentage(const char *format)
 int		is_flag(const char *format, int *pos, va_list *ap, t_struct *box)
 {
 	if (format[*pos] == '-')
-		return (flag_desh(format, pos, box));
+		return (flag_dash(format, pos, box));
 	else if (format[*pos] == '0')
 		return (flag_zero(format, pos, box));
 	else if (format[*pos] >= '1' && format[*pos] <= '9')

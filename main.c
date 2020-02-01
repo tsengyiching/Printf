@@ -5,16 +5,16 @@ int		main(void)
 {
 	printf("----------------------------- c -----------------------------\n");
 
-	// ft_printf("my printf : [%c]\n", '\0');
-	// dprintf(1, "-- printf : [%c]\n", '\0');
-	// dprintf(1, "  %d\n", ft_printf("my printf : [%10c]", 'a'));
-	// dprintf(1, "  %d\n", dprintf(1,"-- printf : [%10c]", 'a'));
-	// dprintf(1, "  %d\n", ft_printf("my printf : [%-10c]", 'a'));
-	// dprintf(1, "  %d\n", dprintf(1,"-- printf : [%-10c]", 'a'));
-	// dprintf(1, "  %d\n", ft_printf("my printf : [%*c]", -5, 0));
-	// dprintf(1, "  %d\n", dprintf(1,"-- printf : [%*c]", -5, 0));
-	// dprintf(1, "  %d\n", ft_printf("my printf : [%*c]", -5, 'a'));
-	// dprintf(1, "  %d\n", dprintf(1,"-- printf : [%*c]", -5, 'a'));
+	ft_printf("my printf : [%c]\n", '\0');
+	dprintf(1, "-- printf : [%c]\n", '\0');
+	dprintf(1, "  %d\n", ft_printf("my printf : [%10c]", 'a'));
+	dprintf(1, "  %d\n", dprintf(1,"-- printf : [%10c]", 'a'));
+	dprintf(1, "  %d\n", ft_printf("my printf : [%-10c]", 'a'));
+	dprintf(1, "  %d\n", dprintf(1,"-- printf : [%-10c]", 'a'));
+	dprintf(1, "  %d\n", ft_printf("my printf : [%*c]", -5, 0));
+	dprintf(1, "  %d\n", dprintf(1,"-- printf : [%*c]", -5, 0));
+	dprintf(1, "  %d\n", ft_printf("my printf : [%*c]", -5, 'a'));
+	dprintf(1, "  %d\n", dprintf(1,"-- printf : [%*c]", -5, 'a'));
 
 	printf("----------------------------- s-----------------------------\n");
 	

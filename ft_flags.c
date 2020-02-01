@@ -19,7 +19,7 @@ int		flag_num(const char *format, int *pos, t_struct *box)
 	return (1);
 }
 
-int		flag_desh(const char *format, int *pos, t_struct *box)
+int		flag_dash(const char *format, int *pos, t_struct *box)
 {
 	box->align_left = get_int(format, pos);
 	return (1);

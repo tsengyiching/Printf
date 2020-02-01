@@ -19,7 +19,7 @@
 # include "libft/libft.h"
 
 int					ft_printf(const char *format, ...)
-						 __attribute__((format(printf,1,2)));
+						 __attribute__((format(printf, 1, 2)));
 
 typedef struct		s_struct
 {
@@ -44,7 +44,7 @@ void				write_words(const char *str, int i, t_struct *box);
 void				write_spaces(int nb, t_struct *box);
 void				write_zeros(int nb, t_struct *box);
 int					flag_num(const char *format, int *pos, t_struct *flags);
-int					flag_desh(const char *format, int *pos, t_struct *flags);
+int					flag_dash(const char *format, int *pos, t_struct *flags);
 int					flag_point(const char *format, int *pos, t_struct *flags);
 int					flag_star(int *pos, va_list *ap, t_struct *box);
 int					flag_zero(const char *format, int *pos, t_struct *box);

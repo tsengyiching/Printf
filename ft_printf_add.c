@@ -19,7 +19,7 @@ int		get_int(const char *str, int *pos)
 
 	res = 0;
 	if (str[*pos] == '-' || str[*pos] == '%' || str[*pos] == '.'
-		|| str[*pos] == '0')
+			|| str[*pos] == '0')
 		(*pos)++;
 	while (str[*pos] >= '0' && str[*pos] <= '9')
 	{
