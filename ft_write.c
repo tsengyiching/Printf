@@ -44,3 +44,27 @@ void	write_zeros(int nb, t_struct *box)
 		i++;
 	}
 }
+
+char	*put_int_to_str(int n)
+{
+	char	*str;
+	int		len;
+	int		nb;
+
+	len = 1;
+	nb = n;
+	while (nb > 9)
+	{
+		nb = nb / 10;
+		len++;
+	}
+	if (!(str = ft_calloc(sizeof(char), (len + 1))))
+		return (NULL);
+	while (len - 1 >= 0)
+	{
+		str[len - 1] = (n % 10) + '0';
+		n = n / 10;
+		len--;
+	}
+	return (str);
+}

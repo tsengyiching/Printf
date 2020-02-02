@@ -13,6 +13,20 @@
 
 #include "ft_libft_printf.h"
 
+int		get_percentage(const char *format)
+{
+	int i;
+
+	i = 0;
+	while (format[i])
+	{
+		if (format[i] == '%')
+			return (i);
+		i++;
+	}
+	return (i);
+}
+
 int		get_int(const char *str, int *pos)
 {
 	long int	res;

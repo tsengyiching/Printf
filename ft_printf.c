@@ -13,20 +13,6 @@
 
 #include "ft_libft_printf.h"
 
-int		is_percentage(const char *format)
-{
-	int i;
-
-	i = 0;
-	while (format[i])
-	{
-		if (format[i] == '%')
-			return (i);
-		i++;
-	}
-	return (i);
-}
-
 int		is_flag(const char *format, int *pos, va_list *ap, t_struct *box)
 {
 	if (format[*pos] == '-')
@@ -50,8 +36,8 @@ void	ft_printf_parse(const char *format, t_struct *box, va_list *ap)
 	int		i;
 	int		tmp;
 
-	put_index(tab_index);
-	pos = is_percentage(format);
+	init_tab_index(tab_index);
+	pos = get_percentage(format);
 	write_words(format, pos, box);
 	i = 0;
 	tmp = 0;
@@ -66,7 +52,7 @@ void	ft_printf_parse(const char *format, t_struct *box, va_list *ap)
 			pos++;
 		}
 		tmp = 0;
-		i = is_percentage(format + pos);
+		i = get_percentage(format + pos);
 		write_words(format + pos, i, box);
 		init_box(box);
 		pos = pos + i;

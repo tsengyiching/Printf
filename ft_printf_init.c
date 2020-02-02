@@ -23,7 +23,7 @@ void	init_box(t_struct *box)
 	box->snull = -1;
 }
 
-void	put_index(char *tab_index)
+void	init_tab_index(char *tab_index)
 {
 	tab_index[0] = 'c';
 	tab_index[1] = 's';
