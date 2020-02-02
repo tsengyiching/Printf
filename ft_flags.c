@@ -13,25 +13,25 @@
 
 #include "ft_libft_printf.h"
 
-int		flag_num(const char *format, int *pos, t_struct *box)
+int		put_width(const char *format, int *pos, t_struct *box)
 {
 	box->width = get_int(format, pos);
 	return (1);
 }
 
-int		flag_dash(const char *format, int *pos, t_struct *box)
+int		put_align_left(const char *format, int *pos, t_struct *box)
 {
 	box->align_left = get_int(format, pos);
 	return (1);
 }
 
-int		flag_point(const char *format, int *pos, t_struct *box)
+int		put_precision(const char *format, int *pos, t_struct *box)
 {
 	box->precision = get_int(format, pos);
 	return (1);
 }
 
-int		flag_star(int *pos, va_list *ap, t_struct *box)
+int		put_option(int *pos, va_list *ap, t_struct *box)
 {
 	int		i;
 
@@ -54,7 +54,7 @@ int		flag_star(int *pos, va_list *ap, t_struct *box)
 	return (1);
 }
 
-int		flag_zero(const char *format, int *pos, t_struct *box)
+int		put_zero(const char *format, int *pos, t_struct *box)
 {
 	box->zero = get_int(format, pos);
 	return (1);

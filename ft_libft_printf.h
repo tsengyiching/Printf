@@ -43,11 +43,11 @@ int					get_int(const char *str, int *pos);
 void				write_words(const char *str, int i, t_struct *box);
 void				write_spaces(int nb, t_struct *box);
 void				write_zeros(int nb, t_struct *box);
-int					flag_num(const char *format, int *pos, t_struct *flags);
-int					flag_dash(const char *format, int *pos, t_struct *flags);
-int					flag_point(const char *format, int *pos, t_struct *flags);
-int					flag_star(int *pos, va_list *ap, t_struct *box);
-int					flag_zero(const char *format, int *pos, t_struct *box);
+int					put_width(const char *format, int *pos, t_struct *flags);
+int					put_align_left(const char *format, int *pos, t_struct *flags);
+int					put_precision(const char *format, int *pos, t_struct *flags);
+int					put_option(int *pos, va_list *ap, t_struct *box);
+int					put_zero(const char *format, int *pos, t_struct *box);
 int					printf_null(t_struct *flags, char **str);
 //void				ft_write_num(int n, t_struct *box);
 #endif

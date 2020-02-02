@@ -30,15 +30,15 @@ int		is_percentage(const char *format)
 int		is_flag(const char *format, int *pos, va_list *ap, t_struct *box)
 {
 	if (format[*pos] == '-')
-		return (flag_dash(format, pos, box));
+		return (put_align_left(format, pos, box));
 	else if (format[*pos] == '0')
-		return (flag_zero(format, pos, box));
+		return (put_zero(format, pos, box));
 	else if (format[*pos] >= '1' && format[*pos] <= '9')
-		return (flag_num(format, pos, box));
+		return (put_width(format, pos, box));
 	else if (format[*pos] == '.')
-		return (flag_point(format, pos, box));
+		return (put_precision(format, pos, box));
 	else if (format[*pos] == '*')
-		return (flag_star(pos, ap, box));
+		return (put_option(pos, ap, box));
 	return (-1);
 }
 
