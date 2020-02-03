@@ -35,7 +35,11 @@ typedef struct		s_struct
 void				init_box(t_struct *box);
 void				convert_char(va_list *ap, t_struct *flags);
 void				convert_str(va_list *ap, t_struct *flags);
+void				convert_str_width(char *str, int len, t_struct *box);
+void				convert_str_align(char *str, int len, t_struct *box);
 void				convert_nbr(va_list *ap, t_struct *flags);
+void				nb_is_neg(int *nb, int *neg, t_struct *box);
+void				convert_nbr_width(char *str_nb, int len, int neg, t_struct *box);
 void				init_tab_index(char *tab_index);
 int					find_index(char *tab_index, char element);
 void				apply_conversions(int index, va_list *ap, t_struct *flags);
@@ -50,5 +54,5 @@ int					put_align_left(const char *format, int *pos, t_struct *flags);
 int					put_precision(const char *format, int *pos, t_struct *flags);
 int					put_option(int *pos, va_list *ap, t_struct *box);
 int					put_zero(const char *format, int *pos, t_struct *box);
-int					printf_null(t_struct *flags, char **str);
+int					str_null(t_struct *flags, char **str);
 #endif
