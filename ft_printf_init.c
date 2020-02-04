@@ -11,7 +11,7 @@
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "ft_libft_printf.h"
+#include "libft_printf.h"
 
 void	init_box(t_struct *box)
 {
@@ -32,7 +32,7 @@ void	init_tab_index(char *tab_index)
 	tab_index[3] = 0;
 }
 
-void	apply_conversions(int index, va_list *ap, t_struct *box)
+void	apply_conversion(int index, va_list *ap, t_struct *box)
 {
 	void	(*ptr_function[3]) (va_list *, t_struct *);
 

@@ -17,7 +17,7 @@
 
 NAME 		= libftprintf.a
 
-HEADER 		= ft_libft_printf.h
+HEADER 		= libft_printf.h
 
 LIB			= libft.a
 

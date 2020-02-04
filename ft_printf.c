@@ -11,7 +11,7 @@
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "ft_libft_printf.h"
+#include "libft_printf.h"
 
 int		is_flag(const char *format, int *pos, va_list *ap, t_struct *box)
 {
@@ -37,7 +37,7 @@ void	ft_printf_parse(const char *format, t_struct *box, va_list *ap)
 	int		tmp;
 
 	init_tab_index(tab_index);
-	pos = get_percentage(format);
+	pos = get_percentage_index(format);
 	write_words(format, pos, box);
 	i = 0;
 	tmp = 0;
@@ -48,11 +48,11 @@ void	ft_printf_parse(const char *format, t_struct *box, va_list *ap)
 			tmp = is_flag(format, &pos, ap, box);
 		if ((index = find_index(tab_index, format[pos])) != -1)
 		{
-			apply_conversions(index, ap, box);
+			apply_conversion(index, ap, box);
 			pos++;
 		}
 		tmp = 0;
-		i = get_percentage(format + pos);
+		i = get_percentage_index(format + pos);
 		write_words(format + pos, i, box);
 		init_box(box);
 		pos = pos + i;

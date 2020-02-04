@@ -11,7 +11,7 @@
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "ft_libft_printf.h"
+#include "libft_printf.h"
 
 int		put_width(const char *format, int *pos, t_struct *box)
 {

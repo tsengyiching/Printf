@@ -1,46 +1,34 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_write.c                                       .::    .:/ .      .::   */
+/*   conversion_c.c                                   .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: yictseng <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2020/01/31 22:01:38 by yictseng     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/31 22:24:36 by yictseng    ###    #+. /#+    ###.fr     */
+/*   Created: 2020/01/15 16:30:15 by yictseng     #+#   ##    ##    #+#       */
+/*   Updated: 2020/01/29 20:15:42 by yictseng    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft_printf.h"
 
-void	write_words(const char *str, int i, t_struct *box)
+void	convert_char(va_list *ap, t_struct *box)
 {
-	write(1, str, i);
-	box->value += i;
-}
+	char	c;
 
-void	write_spaces(int nb, t_struct *box)
-{
-	int		i;
-
-	i = 0;
-	while (i < nb)
+	c = va_arg(*ap, int);
+	(box->value)++;
+	if (box->width != -1)
 	{
-		write(1, " ", 1);
-		(box->value)++;
-		i++;
+		write_spaces(box->width - 1, box);
+		write(1, &c, 1);
 	}
-}
-
-void	write_zeros(int nb, t_struct *box)
-{
-	int		i;
-
-	i = 0;
-	while (i < nb)
+	else if (box->align_left != -1)
 	{
-		write(1, "0", 1);
-		(box->value)++;
-		i++;
+		write(1, &c, 1);
+		write_spaces(box->align_left - 1, box);
 	}
+	else
+		write(1, &c, 1);
 }
