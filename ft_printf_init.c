@@ -29,15 +29,17 @@ void	init_tab_index(char *tab_index)
 	tab_index[0] = 'c';
 	tab_index[1] = 's';
 	tab_index[2] = 'd';
-	tab_index[3] = 0;
+	tab_index[3] = 'i';
+	tab_index[4] = 0;
 }
 
 void	apply_conversion(int index, va_list *ap, t_struct *box)
 {
-	void	(*ptr_function[3]) (va_list *, t_struct *);
+	void	(*ptr_function[4]) (va_list *, t_struct *);
 
 	ptr_function[0] = &convert_char;
 	ptr_function[1] = &convert_str;
-	ptr_function[2] = &convert_nbr;
+	ptr_function[2] = &convert_decimal;
+	ptr_function[3] = &convert_decimal;
 	(*ptr_function[index])(ap, box);
 }

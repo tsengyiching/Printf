@@ -38,7 +38,7 @@ void				convert_char(va_list *ap, t_struct *flags);
 void				convert_str(va_list *ap, t_struct *flags);
 void				convert_str_width(char *str, int len, t_struct *box);
 void				convert_str_align(char *str, int len, t_struct *box);
-void				convert_nbr(va_list *ap, t_struct *flags);
+void				convert_decimal(va_list *ap, t_struct *flags);
 void				nb_is_neg(long *nb, t_struct *box);
 void				print_nbr(char *str_nb, int len, int index_zero, t_struct *box);
 void				init_tab_index(char *tab_index);

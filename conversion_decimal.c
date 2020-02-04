@@ -35,7 +35,7 @@ void	print_nbr(char *str_nb, int len, int index_zero, t_struct *box)
 	write_words((const char *)str_nb, len, box);
 }
 
-void	convert_nbr(va_list *ap, t_struct *box)
+void	convert_decimal(va_list *ap, t_struct *box)
 {
 	long 	nb;
 	int 	len;
