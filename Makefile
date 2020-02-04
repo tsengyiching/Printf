@@ -28,9 +28,9 @@ SRCS		= ft_printf.c\
 			  ft_printf_init.c\
 			  ft_write.c\
 			  ft_flags.c\
-			  ft_conversion_c.c\
-			  ft_conversion_s.c\
-			  ft_conversion_d.c\
+			  conversion_char.c\
+			  conversion_str.c\
+			  conversion_decimal.c\
 
 OBJS 		= $(SRCS:.c=.o)
 
