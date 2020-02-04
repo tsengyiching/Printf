@@ -39,11 +39,12 @@ void	init_tab_index(char *tab_index)
 
 void	apply_conversion(int index, va_list *ap, t_struct *box)
 {
-	void	(*ptr_function[4]) (va_list *, t_struct *);
+	void	(*ptr_function[5]) (va_list *, t_struct *);
 
 	ptr_function[0] = &convert_char;
 	ptr_function[1] = &convert_str;
 	ptr_function[2] = &convert_decimal;
 	ptr_function[3] = &convert_decimal;
+	ptr_function[4] = &convert_unsigned_int;
 	(*ptr_function[index])(ap, box);
 }

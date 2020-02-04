@@ -298,15 +298,28 @@ int		main(void)
 
 	printf("----------------------------- x -----------------------------\n");
 
-	printf("1 -- printf : [%x]\n", 1);
-	printf("1 -- printf : [%x]\n", 2);
-	printf("1 -- printf : [%x]\n", 3);
+	// printf("1 -- printf : [%x]\n", 1);
+	// printf("1 -- printf : [%x]\n", 2);
+	// printf("1 -- printf : [%x]\n", 3);
 	
 
 	printf("----------------------------- u -----------------------------\n");
 
-	// printf("1 -- printf : [%u]\n", 10);
-	// printf("2 -- printf : [%u]\n", -100);
+	printf("%d\n", printf("1unsigned 1 %u unsigned 2 %u\n", 42, -42));
+	printf("%d\n", printf("4unsigned 1 %12u unsigned 2 %12u\n", 42, -42));
+	printf("%d\n", printf("4unsigned 1 %-12u unsigned 2 %-12u\n", 42, -42));
+	printf("%d\n", printf("5unsigned 1 %0u unsigned 2 %0u\n", 42, -42));
+	printf("%d\n", printf("6unsigned 1 %012u unsigned 2 %012u\n", 42, -42));
+	printf("%d\n", printf("8unsigned 1 %*u unsigned 2 %*u\n", 42, 6, 6, 6));
+	printf("%d\n", printf("15unsigned 1 %.u unsigned 2 %.u\n", 42, -42));
+	printf("---------------------------- my -----------------------------\n");
+	ft_printf("%d\n", ft_printf("1unsigned 1 %u unsigned 2 %u\n", 42, -42));
+	ft_printf("%d\n", ft_printf("4unsigned 1 %12u unsigned 2 %12u\n", 42, -42));
+	ft_printf("%d\n", ft_printf("4unsigned 1 %-12u unsigned 2 %-12u\n", 42, -42));
+	ft_printf("%d\n", ft_printf("5unsigned 1 %0u unsigned 2 %0u\n", 42, -42));
+	ft_printf("%d\n", ft_printf("6unsigned 1 %012u unsigned 2 %012u\n", 42, -42));
+	ft_printf("%d\n", ft_printf("8unsigned 1 %*u unsigned 2 %*u\n", 42, 6, 6, 6));
+	ft_printf("%d\n", ft_printf("15unsigned 1 %.u unsigned 2 %.u\n", 42, -42));
 
 	printf("---------------------------- mix ----------------------------\n");
 	

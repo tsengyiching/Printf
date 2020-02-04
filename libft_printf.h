@@ -44,6 +44,7 @@ void				convert_str_align(char *str, int len, t_struct *box);
 void				convert_decimal(va_list *ap, t_struct *flags);
 void				nb_is_neg(long *nb, t_struct *box);
 void				print_nbr(char *str_nb, int len, int index_zero, t_struct *box);
+void				convert_unsigned_int(va_list *ap, t_struct *box);
 
 int					find_index(char *tab_index, char element);
 int					get_int(const char *str, int *pos);
