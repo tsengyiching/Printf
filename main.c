@@ -277,25 +277,36 @@ int		main(void)
 
 	printf("----------------------------- i -----------------------------\n");
 
-	ft_printf("  %d\n", ft_printf("1 my printf : [%i]", 42));
-	dprintf(1, "  %d\n", dprintf(1, "1 -- printf : [%i]", 42));
-	ft_printf("  %d\n", ft_printf("2 my printf : [%10i]", 42));
-	dprintf(1, "  %d\n", dprintf(1, "2 -- printf : [%10i]", 42));
-	ft_printf("  %d\n", ft_printf("3 my printf : [%1i]", 42));
-	dprintf(1, "  %d\n", dprintf(1, "3 -- printf : [%1i]", 42));
-	ft_printf("  %d\n", ft_printf("4 my printf : [%2i]", 42));
-	dprintf(1, "  %d\n", dprintf(1, "4 -- printf : [%2i]", 42));
-	ft_printf("  %d\n", ft_printf("5 my printf : [%-10i]", 42));
-	dprintf(1, "  %d\n", dprintf(1, "5 -- printf : [%-10i]", 42));
-	ft_printf("  %d\n", ft_printf("6 my printf : [%.3i]", 12345));
-	dprintf(1, "  %d\n", dprintf(1, "6 -- printf : [%.3i]", 12345));
-	ft_printf("  %d\n", ft_printf("7 my printf : [%.10i]", 12345));
-	dprintf(1, "  %d\n", dprintf(1, "7 -- printf : [%.10i]", 12345));
-	ft_printf("  %d\n", ft_printf("8 my printf : [%5.3i]", 12345));
-	dprintf(1, "  %d\n", dprintf(1, "8 -- printf : [%5.3i]", 12345));
-	ft_printf("  %d\n", ft_printf("9 my printf : [%8.10i]", 12345));
-	dprintf(1, "  %d\n", dprintf(1, "9 -- printf : [%8.10i]", 12345));
-	ft_printf("  %d\n", ft_printf("10 my printf : [%10.8i]", 12345));
+	// ft_printf("  %d\n", ft_printf("1 my printf : [%i]", 42));
+	// dprintf(1, "  %d\n", dprintf(1, "1 -- printf : [%i]", 42));
+	// ft_printf("  %d\n", ft_printf("2 my printf : [%10i]", 42));
+	// dprintf(1, "  %d\n", dprintf(1, "2 -- printf : [%10i]", 42));
+	// ft_printf("  %d\n", ft_printf("3 my printf : [%1i]", 42));
+	// dprintf(1, "  %d\n", dprintf(1, "3 -- printf : [%1i]", 42));
+	// ft_printf("  %d\n", ft_printf("4 my printf : [%2i]", 42));
+	// dprintf(1, "  %d\n", dprintf(1, "4 -- printf : [%2i]", 42));
+	// ft_printf("  %d\n", ft_printf("5 my printf : [%-10i]", 42));
+	// dprintf(1, "  %d\n", dprintf(1, "5 -- printf : [%-10i]", 42));
+	// ft_printf("  %d\n", ft_printf("6 my printf : [%.3i]", 12345));
+	// dprintf(1, "  %d\n", dprintf(1, "6 -- printf : [%.3i]", 12345));
+	// ft_printf("  %d\n", ft_printf("7 my printf : [%.10i]", 12345));
+	// dprintf(1, "  %d\n", dprintf(1, "7 -- printf : [%.10i]", 12345));
+	// ft_printf("  %d\n", ft_printf("8 my printf : [%5.3i]", 12345));
+	// dprintf(1, "  %d\n", dprintf(1, "8 -- printf : [%5.3i]", 12345));
+	// ft_printf("  %d\n", ft_printf("9 my printf : [%8.10i]", 12345));
+	// dprintf(1, "  %d\n", dprintf(1, "9 -- printf : [%8.10i]", 12345));
+
+	printf("----------------------------- x -----------------------------\n");
+
+	printf("1 -- printf : [%x]\n", 1);
+	printf("1 -- printf : [%x]\n", 2);
+	printf("1 -- printf : [%x]\n", 3);
+	
+
+	printf("----------------------------- u -----------------------------\n");
+
+	// printf("1 -- printf : [%u]\n", 10);
+	// printf("2 -- printf : [%u]\n", -100);
 
 	printf("---------------------------- mix ----------------------------\n");
 	

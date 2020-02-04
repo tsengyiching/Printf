@@ -43,7 +43,7 @@ int		get_int(const char *str, int *pos)
 	return (res);
 }
 
-char	*put_int_to_str(long n)
+char	*put_int(long n)
 {
 	char	*str;
 	int		len;

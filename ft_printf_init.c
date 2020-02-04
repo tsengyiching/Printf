@@ -30,7 +30,11 @@ void	init_tab_index(char *tab_index)
 	tab_index[1] = 's';
 	tab_index[2] = 'd';
 	tab_index[3] = 'i';
-	tab_index[4] = 0;
+	tab_index[4] = 'u';
+	tab_index[5] = 'x';
+	tab_index[6] = 'X';
+	tab_index[7] = 'p';
+	tab_index[8] = 0;
 }
 
 void	apply_conversion(int index, va_list *ap, t_struct *box)
