@@ -24,11 +24,13 @@ LIB			= libft.a
 LIBS		= libft/libft.a
 
 SRCS		= ft_printf.c\
-			  ft_save_flags.c\
-			  conversions.c\
-			  conversion_c.c\
-			  conversion_s.c\
-			  conversion_d.c\
+			  ft_printf_add.c\
+			  ft_printf_init.c\
+			  ft_write.c\
+			  ft_flags.c\
+			  ft_conversion_c.c\
+			  ft_conversion_s.c\
+			  ft_conversion_d.c\
 
 OBJS 		= $(SRCS:.c=.o)
 
@@ -46,7 +48,8 @@ all			: $(LIB) $(NAME)
 
 $(NAME)		: $(OBJS) $(HEADER)
 			  @cp libft/libft.a ./$(NAME)
-			  @ar rc $(NAME) $(OBJS)
+			  ar rc $(NAME) $(OBJS)
+			  ranlib $(NAME)
 
 $(LIB)		: 		
 			  @$(MAKE) -C libft all
