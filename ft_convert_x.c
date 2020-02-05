@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_convert_u.c                                   .::    .:/ .      .::   */
+/*   ft_convert_x.c                                   .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: yictseng <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2020/02/04 20:18:16 by yictseng     #+#   ##    ##    #+#       */
-/*   Updated: 2020/02/04 20:18:18 by yictseng    ###    #+. /#+    ###.fr     */
+/*   Created: 2020/02/05 14:51:55 by yictseng     #+#   ##    ##    #+#       */
+/*   Updated: 2020/02/05 14:51:57 by yictseng    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft_printf.h"
 
-void	convert_unsigned_int(va_list *ap, t_struct *box)
+void	convert_hexa(va_list *ap, t_struct *box)
 {
-	unsigned int 	nb;
+	unsigned int	nb;
 	int 			len;
 	int				index_zero;
 	char			*str_nb;
 
 	index_zero = 0;
 	nb = va_arg(*ap, int);
-	str_nb = ft_utoa_base(nb, "0123456789");
+	str_nb = ft_utoa_base(nb, "0123456789abcdef");
 	len = ft_strlen(str_nb);
 	if (box->zero != -1 && box->precision != -1)
 	{

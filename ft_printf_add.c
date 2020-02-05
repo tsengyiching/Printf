@@ -43,26 +43,29 @@ int		get_int(const char *str, int *pos)
 	return (res);
 }
 
-char	*put_int(long n)
+char	*ft_utoa_base(unsigned int nb, char *base)
 {
-	char	*str;
-	int		len;
-	long	nb;
+	char			*str;
+	unsigned int	base_len;
+	unsigned int	res_len;
+	unsigned int	n;
 
-	len = 1;
-	nb = n;
-	while (nb > 9)
+	n = nb;
+	res_len = 1;
+	base_len = ft_strlen(base);
+	while (n > (base_len - 1))
 	{
-		nb = nb / 10;
-		len++;
+		n = n / base_len;
+		res_len++;
 	}
-	if (!(str = ft_calloc(sizeof(char), (len + 1))))
+	if (!(str = malloc(sizeof(char) * (res_len + 1))))
 		return (NULL);
-	while (len - 1 >= 0)
+	str[res_len] = '\0';
+	while (res_len > 0)
 	{
-		str[len - 1] = (n % 10) + '0';
-		n = n / 10;
-		len--;
+		str[res_len - 1] = base[nb % base_len];
+		nb = nb / base_len;
+		res_len--;
 	}
 	return (str);
 }

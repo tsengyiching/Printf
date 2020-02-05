@@ -246,9 +246,9 @@ int		main(void)
 	// dprintf(1, "  %d\n", dprintf(1, "16 -- printf : [%010d]", 42));
 	// dprintf(1, "  %d\n", dprintf(1, "17 -- printf : [%010d]", -42));
 
-	//int n = -2147483648;
-	//ft_printf("  %d\n", ft_printf("27 my printf : [%d]", -2147483648));
-	//dprintf(1, "  %d\n", dprintf(1, "29 -- printf : [%d]", n));
+	// int n = -2147483648;
+	// ft_printf("  %d\n", ft_printf("27 my printf : [%d]", -2147483648));
+	// dprintf(1, "  %d\n", dprintf(1, "29 -- printf : [%d]", n));
 
 	// ft_printf("  %d\n", ft_printf("1 my printf : [%*d]", 10, -123));
 	// dprintf(1, "  %d\n", dprintf(1, "1 -- printf : [%*d]", 10, -123));
@@ -277,7 +277,7 @@ int		main(void)
 
 	printf("----------------------------- i -----------------------------\n");
 
-	// ft_printf("  %d\n", ft_printf("1 my printf : [%i]", 42));
+	// ft_printf("  %d\n", ft_printf("1 my printf : [%x]", 42));
 	// dprintf(1, "  %d\n", dprintf(1, "1 -- printf : [%i]", 42));
 	// ft_printf("  %d\n", ft_printf("2 my printf : [%10i]", 42));
 	// dprintf(1, "  %d\n", dprintf(1, "2 -- printf : [%10i]", 42));
@@ -298,28 +298,61 @@ int		main(void)
 
 	printf("----------------------------- x -----------------------------\n");
 
-	// printf("1 -- printf : [%x]\n", 1);
-	// printf("1 -- printf : [%x]\n", 2);
-	// printf("1 -- printf : [%x]\n", 3);
+	ft_printf("  %d\n", ft_printf("1 my printf : [%x]", 42));
+	dprintf(1, "  %d\n", dprintf(1, "1 -- printf : [%x]", 42));
+	ft_printf("  %d\n", ft_printf("2 my printf : [%10x]", 42));
+	dprintf(1, "  %d\n", dprintf(1, "2 -- printf : [%10x]", 42));
+	ft_printf("  %d\n", ft_printf("3 my printf : [%1x]", 42));
+	dprintf(1, "  %d\n", dprintf(1, "3 -- printf : [%1x]", 42));
+	ft_printf("  %d\n", ft_printf("4 my printf : [%2x]", 42));
+	dprintf(1, "  %d\n", dprintf(1, "4 -- printf : [%2x]", 42));
+	ft_printf("  %d\n", ft_printf("5 my printf : [%-10x]", 42));
+	dprintf(1, "  %d\n", dprintf(1, "5 -- printf : [%-10x]", 42));
+	ft_printf("  %d\n", ft_printf("6 my printf : [%.3x]", 100));
+	dprintf(1, "  %d\n", dprintf(1, "6 -- printf : [%.3x]", 100));
+	ft_printf("  %d\n", ft_printf("7 my printf : [%.10x]", 100));
+	dprintf(1, "  %d\n", dprintf(1, "7 -- printf : [%.10x]", 100));
+	ft_printf("  %d\n", ft_printf("8 my printf : [%5.3x]", 100));
+	dprintf(1, "  %d\n", dprintf(1, "8 -- printf : [%5.3x]", 100));
+	ft_printf("  %d\n", ft_printf("9 my printf : [%8.10x]", 100));
+	dprintf(1, "  %d\n", dprintf(1, "9 -- printf : [%8.10x]", 100));
 	
+	ft_printf("  %d\n", ft_printf("1 my printf : [%x]", -42));
+	dprintf(1, "  %d\n", dprintf(1, "1 -- printf : [%x]", -42));
+	ft_printf("  %d\n", ft_printf("2 my printf : [%10x]", -42));
+	dprintf(1, "  %d\n", dprintf(1, "2 -- printf : [%10x]", -42));
+	ft_printf("  %d\n", ft_printf("3 my printf : [%1x]", -42));
+	dprintf(1, "  %d\n", dprintf(1, "3 -- printf : [%1x]", -42));
+	ft_printf("  %d\n", ft_printf("4 my printf : [%2x]", -42));
+	dprintf(1, "  %d\n", dprintf(1, "4 -- printf : [%2x]", -42));
+	ft_printf("  %d\n", ft_printf("5 my printf : [%-10x]", -42));
+	dprintf(1, "  %d\n", dprintf(1, "5 -- printf : [%-10x]", -42));
+	ft_printf("  %d\n", ft_printf("6 my printf : [%.3x]", -100));
+	dprintf(1, "  %d\n", dprintf(1, "6 -- printf : [%.3x]", -100));
+	ft_printf("  %d\n", ft_printf("7 my printf : [%.10x]", -100));
+	dprintf(1, "  %d\n", dprintf(1, "7 -- printf : [%.10x]", -100));
+	ft_printf("  %d\n", ft_printf("8 my printf : [%5.3x]", -100));
+	dprintf(1, "  %d\n", dprintf(1, "8 -- printf : [%5.3x]", -100));
+	ft_printf("  %d\n", ft_printf("9 my printf : [%8.10x]", -100));
+	dprintf(1, "  %d\n", dprintf(1, "9 -- printf : [%8.10x]", -100));
 
 	printf("----------------------------- u -----------------------------\n");
 
-	printf("%d\n", printf("1unsigned 1 %u unsigned 2 %u\n", 42, -42));
-	printf("%d\n", printf("4unsigned 1 %12u unsigned 2 %12u\n", 42, -42));
-	printf("%d\n", printf("4unsigned 1 %-12u unsigned 2 %-12u\n", 42, -42));
-	printf("%d\n", printf("5unsigned 1 %0u unsigned 2 %0u\n", 42, -42));
-	printf("%d\n", printf("6unsigned 1 %012u unsigned 2 %012u\n", 42, -42));
-	printf("%d\n", printf("8unsigned 1 %*u unsigned 2 %*u\n", 42, 6, 6, 6));
-	printf("%d\n", printf("15unsigned 1 %.u unsigned 2 %.u\n", 42, -42));
-	printf("---------------------------- my -----------------------------\n");
-	ft_printf("%d\n", ft_printf("1unsigned 1 %u unsigned 2 %u\n", 42, -42));
-	ft_printf("%d\n", ft_printf("4unsigned 1 %12u unsigned 2 %12u\n", 42, -42));
-	ft_printf("%d\n", ft_printf("4unsigned 1 %-12u unsigned 2 %-12u\n", 42, -42));
-	ft_printf("%d\n", ft_printf("5unsigned 1 %0u unsigned 2 %0u\n", 42, -42));
-	ft_printf("%d\n", ft_printf("6unsigned 1 %012u unsigned 2 %012u\n", 42, -42));
-	ft_printf("%d\n", ft_printf("8unsigned 1 %*u unsigned 2 %*u\n", 42, 6, 6, 6));
-	ft_printf("%d\n", ft_printf("15unsigned 1 %.u unsigned 2 %.u\n", 42, -42));
+	// printf("%d\n", printf("1unsigned 1 %u unsigned 2 %u\n", 42, -42));
+	// printf("%d\n", printf("4unsigned 1 %12u unsigned 2 %12u\n", 42, -42));
+	// printf("%d\n", printf("4unsigned 1 %-12u unsigned 2 %-12u\n", 42, -42));
+	// printf("%d\n", printf("5unsigned 1 %0u unsigned 2 %0u\n", 42, -42));
+	// printf("%d\n", printf("6unsigned 1 %012u unsigned 2 %012u\n", 42, -42));
+	// printf("%d\n", printf("8unsigned 1 %*u unsigned 2 %*u\n", 42, 6, 6, 6));
+	// printf("%d\n", printf("15unsigned 1 %.u unsigned 2 %.u\n", 42, -42));
+	// printf("---------------------------- my -----------------------------\n");
+	// ft_printf("%d\n", ft_printf("1unsigned 1 %u unsigned 2 %u\n", 42, -42));
+	// ft_printf("%d\n", ft_printf("4unsigned 1 %12u unsigned 2 %12u\n", 42, -42));
+	// ft_printf("%d\n", ft_printf("4unsigned 1 %-12u unsigned 2 %-12u\n", 42, -42));
+	// ft_printf("%d\n", ft_printf("5unsigned 1 %0u unsigned 2 %0u\n", 42, -42));
+	// ft_printf("%d\n", ft_printf("6unsigned 1 %012u unsigned 2 %012u\n", 42, -42));
+	// ft_printf("%d\n", ft_printf("8unsigned 1 %*u unsigned 2 %*u\n", 42, 6, 6, 6));
+	// ft_printf("%d\n", ft_printf("15unsigned 1 %.u unsigned 2 %.u\n", 42, -42));
 
 	printf("---------------------------- mix ----------------------------\n");
 	

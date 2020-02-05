@@ -44,3 +44,12 @@ void	write_zeros(int nb, t_struct *box)
 		i++;
 	}
 }
+
+void	write_nbr(char *str_nb, int len, int index_zero, t_struct *box)
+{
+	if (box->neg == 1)
+		write(1, "-", 1);
+	if (index_zero != 0)
+		write_zeros(index_zero, box);
+	write_words((const char *)str_nb, len, box);
+}

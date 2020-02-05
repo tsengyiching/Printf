@@ -13,7 +13,7 @@
 
 #include "libft_printf.h"
 
-// void	ft_print_hex(long int nb, char *hex)
+// void	ft_print_hex(unsigned int nb, char *hex)
 // {
 // 	int res;
 
@@ -24,28 +24,18 @@
 // 	ft_putchar(hex[res]);
 // }
 
-// void	ft_putnbr_base()
+// void	ft_putnbr_base(unsigned int nb, t_struct *box)
 // {
-// 	long int	nb;
-// 	char		*hex = "0123456789abcdef";
+// 	char		*hexa;
 // 	char		*str;
 
-// 	if (ac != 2)
-// 		write(1, "\n", 1);
+// 	if (box->hexa_cap == 0)
+// 		hexa = "0123456789abcdef";
+// 	else if (box->hexa_cap == 1)
+// 		hexa = "0123456789ABCDEF";
+// 	if (nb == 0)
+// 		str = "0";
 // 	else
-// 	{
-// 		str = av[1];
-// 		if (ft_strlen(str) != 0)
-// 		{
-// 			nb = ft_atoi(str);
-// 			if (nb == 0)
-// 				write(1, "0", 1);
-// 			else if (nb > 0)
-// 				ft_print_hex(nb, hex);
-// 			write(1, "\n", 1);
-// 		}
-// 		else
-// 			write(1, "\n", 1);
-// 	}
+// 		ft_print_hex(nb, hexa);
 // 	return (0);
 // }
