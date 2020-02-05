@@ -39,7 +39,7 @@ void	init_tab_index(char *tab_index)
 
 void	apply_conversion(int index, va_list *ap, t_struct *box)
 {
-	void	(*ptr_function[6]) (va_list *, t_struct *);
+	void	(*ptr_function[7]) (va_list *, t_struct *);
 
 	ptr_function[0] = &convert_char;
 	ptr_function[1] = &convert_str;
@@ -47,5 +47,6 @@ void	apply_conversion(int index, va_list *ap, t_struct *box)
 	ptr_function[3] = &convert_decimal;
 	ptr_function[4] = &convert_unsigned_int;
 	ptr_function[5] = &convert_hexa;
+	ptr_function[6] = &convert_hexa_cap;
 	(*ptr_function[index])(ap, box);
 }
