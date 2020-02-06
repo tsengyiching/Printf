@@ -16,11 +16,9 @@
 void	convert_hexa_cap(va_list *ap, t_struct *box)
 {
 	unsigned int	nb;
-	int 			len;
-	int				index_zero;
+	int				len;
 	char			*str_nb;
 
-	index_zero = 0;
 	nb = va_arg(*ap, int);
 	str_nb = ft_utoa_base(nb, "0123456789ABCDEF");
 	len = ft_strlen(str_nb);

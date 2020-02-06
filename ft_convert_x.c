@@ -16,7 +16,7 @@
 void	convert_hexa(va_list *ap, t_struct *box)
 {
 	unsigned int	nb;
-	int 			len;
+	int				len;
 	char			*str_nb;
 
 	nb = va_arg(*ap, int);

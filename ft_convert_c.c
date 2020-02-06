@@ -20,15 +20,8 @@ void	convert_char(va_list *ap, t_struct *box)
 	c = va_arg(*ap, int);
 	(box->value)++;
 	if (box->width != -1)
-	{
 		write_spaces(box->width - 1, box);
-		write(1, &c, 1);
-	}
-	else if (box->align_left != -1)
-	{
-		write(1, &c, 1);
+	write(1, &c, 1);
+	if (box->align_left != -1)
 		write_spaces(box->align_left - 1, box);
-	}
-	else
-		write(1, &c, 1);
 }
