@@ -30,7 +30,7 @@ int		is_flag(const char *format, int *pos, va_list *ap, t_struct *box)
 
 void	ft_printf_parse(const char *format, t_struct *box, va_list *ap)
 {
-	char	tab_index[9];
+	char	tab_index[10];
 	int		pos;
 	int		index;
 	int		i;
@@ -48,7 +48,10 @@ void	ft_printf_parse(const char *format, t_struct *box, va_list *ap)
 			tmp = is_flag(format, &pos, ap, box);
 		if ((index = find_index(tab_index, format[pos])) != -1)
 		{
-			apply_conversion(index, ap, box);
+			if (index == 8)
+				convert_percentage(box);
+			else
+				apply_conversion(index, ap, box);
 			pos++;
 		}
 		tmp = 0;

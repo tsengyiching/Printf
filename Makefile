@@ -26,7 +26,8 @@ LIBS		= libft/libft.a
 SRCS		= ft_printf.c\
 			  ft_printf_add.c\
 			  ft_printf_init.c\
-			  ft_write.c\
+			  ft_write_words.c\
+			  ft_write_nbr.c\
 			  ft_flags.c\
 			  ft_convert_c.c\
 			  ft_convert_d.c\
@@ -34,6 +35,8 @@ SRCS		= ft_printf.c\
 			  ft_convert_u.c\
 			  ft_convert_x.c\
 			  ft_convert_x_cap.c\
+			  ft_convert_p.c\
+			  ft_convert_percentage.c\
 
 OBJS 		= $(SRCS:.c=.o)
 

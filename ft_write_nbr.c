@@ -26,6 +26,8 @@ void	add_spaces_n_init(int *len, t_struct *box)
 {
 	if (box->width != -1)
 		write_spaces(box->width, box);
+	else if (box->align_left != -1)
+		write_spaces(box->align_left, box);
 	init_box(box);
 	*len = 0;
 }
@@ -47,12 +49,14 @@ void	do_align_left(char *str_nb, int len, t_struct *box)
 {
 	int index_zero;
 
-	index_zero = box->precision - len;
+	index_zero = 0;
+	if (box->precision > len)
+		index_zero = box->precision - len;
 	write_nbr(str_nb, len, index_zero, box);
 	if (box->align_left > box->precision && box->precision >= len)
 		write_spaces((box->align_left - box->precision), box);
 	else if (box->align_left > box->precision && box->precision < len)
-		write_spaces((box->width - len), box);
+		write_spaces((box->align_left - len), box);
 }
 
 void	add_spaces_or_zeros(char *str_nb, int len, t_struct *box)
