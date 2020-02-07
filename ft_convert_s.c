@@ -20,7 +20,7 @@ int		str_null(t_struct *box, char **str)
 	return (6);
 }
 
-void	convert_str_width(char *str, int len, t_struct *box)
+void	do_str_align_right(char *str, int len, t_struct *box)
 {
 	if (box->precision == -1)
 	{
@@ -42,7 +42,7 @@ void	convert_str_width(char *str, int len, t_struct *box)
 	}
 }
 
-void	convert_str_align(char *str, int len, t_struct *box)
+void	do_str_align_left(char *str, int len, t_struct *box)
 {
 	if (box->precision == -1)
 	{
@@ -74,10 +74,12 @@ void	convert_str(va_list *ap, t_struct *box)
 		len = str_null(box, &str);
 	else
 		len = ft_strlen(str);
+	if (box->precision_neg == 1 && box->precision < 0)
+		box->precision = len;
 	if (box->width != -1)
-		convert_str_width(str, len, box);
+		do_str_align_right(str, len, box);
 	else if (box->align_left != -1)
-		convert_str_align(str, len, box);
+		do_str_align_left(str, len, box);
 	else if (box->precision != -1)
 	{
 		if (box->precision > len)

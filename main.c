@@ -20,11 +20,27 @@ int		main(void)
 	
 	//ft_printf("  %d\n", ft_printf("38 my printf : [%.s]", 42));
 	//dprintf(1, "  %d\n", dprintf(1, "38 my printf : [%.s]", 42));
-	ft_printf("  %d\n", ft_printf("38 my printf : [%.*s]", -3, "Hello")); //***
-	dprintf(1, "  %d\n", dprintf(1, "38 -- printf : [%.*s]", -3, "Hello")); //***
-	ft_printf("  %d\n", ft_printf("38 my printf : [%*.*s]", 0, -5, "Hello")); //***
-	dprintf(1, "  %d\n", dprintf(1, "38 -- printf : [%*.*s]", 0, -5, "Hello")); //***
+	// ft_printf("  %d\n", ft_printf("38 my printf : [%.*s]", -3, "Hello")); //***
+	// dprintf(1, "  %d\n", dprintf(1, "38 -- printf : [%.*s]", -3, "Hello")); //***
+	// ft_printf("  %d\n", ft_printf("38 my printf : [%*.*s]", 0, -5, "Hello")); //***
+	// dprintf(1, "  %d\n", dprintf(1, "38 -- printf : [%*.*s]", 0, -5, "Hello")); //***
+	//printf("for special cas * : %.*s\n", -3, NULL);
+	//printf("for special cas : %.-3s\n", "hello");
+	ft_printf("  %d\n", ft_printf("38 my printf : [%4.5s]", "123"));
+	dprintf(1, "  %d\n", dprintf(1, "38 my printf : [%4.5s]", "123"));
+//71 - ("%*s", -1000, "") : FAILED
 	
+	ft_printf( "  %d\n", ft_printf("33 -- printf : [%*s]", 13, "bonjour"));
+	dprintf(1, "  %d\n", dprintf(1,"33 -- printf : [%*s]", 13, "bonjour"));
+	dprintf(1, "  %d\n", ft_printf("34 my printf : [%*.*s]", 10, 3, "bonjour"));
+	dprintf(1, "  %d\n", dprintf(1,"34 -- printf : [%*.*s]", 10, 3, "bonjour"));
+	dprintf(1, "  %d\n", ft_printf("35 my printf : [%.*s]", 1, "bonjour"));
+	dprintf(1, "  %d\n", dprintf(1,"35 -- printf : [%.*s]", 1, "bonjour"));
+	dprintf(1, "  %d\n", ft_printf("36 my printf : [%10.*s]", 1, "bonjour"));
+	dprintf(1, "  %d\n", dprintf(1,"36 -- printf : [%10.*s]", 1, "bonjour"));
+	dprintf(1, "  %d\n", ft_printf("37 my printf : [%*.5s]", 10, "bonjour"));
+	dprintf(1, "  %d\n", dprintf(1,"37 -- printf : [%*.5s]", 10, "bonjour"));
+
 	printf("----------------------------- d -----------------------------\n");
 	
 	printf("------------------------- d positive-------------------------\n");
@@ -129,6 +145,12 @@ int		main(void)
 	// ft_printf("  %d\n", ft_printf("12 my printf : [%*.*d]", 10, 0, 0));
 	// dprintf(1, "  %d\n", dprintf(1, "12 -- printf : [%*.*d]", 10, 0, 0));
 	
+	// ft_printf("  %d\n", ft_printf("13 my printf : [%0d]", 0));
+	// dprintf(1, "  %d\n", dprintf(1, "13 -- printf : [%0d]", 0));
+	// ft_printf("  %d\n", ft_printf("14 my printf : [%*d]", 0, 0));
+	// dprintf(1, "  %d\n", dprintf(1, "14 -- printf : [%*d]", 0, 0));
+
+
 	printf("------------------------- d negative-------------------------\n");
 
 	// ft_printf("  %d\n", ft_printf("1 my printf : [%d]", -42));
@@ -244,13 +266,28 @@ int		main(void)
 	// dprintf(1, "  %d\n", dprintf(1, "4 -- printf : [%-3.0i]", -1));
 	// ft_printf("  %d\n", ft_printf("5 my printf : [%-11.0i]", 2147483647));
 	// dprintf(1, "  %d\n", dprintf(1, "5 -- printf : [%-11.0i]", 2147483647));
-	// ft_printf("  %d\n", ft_printf("4 my printf : [%-3.0i]", 2));
-	// dprintf(1, "  %d\n", dprintf(1, "4 -- printf : [%-3.0i]", 2));
-
-	ft_printf("  %d\n", ft_printf("4 -- printf : [%0*i]", 10, 42)); //***
-	dprintf(1, "  %d\n", dprintf(1, "4 -- printf : [%0*i]", 10, 42)); //***
-	ft_printf("  %d\n", ft_printf("4 -- printf : [%-*i]", 10, 42)); //***
-	dprintf(1, "  %d\n", dprintf(1, "4 -- printf : [%-*i]", 10, 42)); //***
+	// ft_printf("  %d\n", ft_printf("6 my printf : [%-3.0i]", 2));
+	// dprintf(1, "  %d\n", dprintf(1, "6 -- printf : [%-3.0i]", 2));
+	// ft_printf("  %d\n", ft_printf("7 -- printf : [%0*i]", 10, 42));
+	// dprintf(1, "  %d\n", dprintf(1, "7 -- printf : [%0*i]", 10, 42));
+	// ft_printf("  %d\n", ft_printf("8 -- printf : [%-*i]", 10, 42));
+	// dprintf(1, "  %d\n", dprintf(1, "8 -- printf : [%-*i]", 10, 42));
+	// ft_printf("  %d\n", ft_printf("9 my printf : [%*i]", 0, 0));
+	// dprintf(1, "  %d\n", dprintf(1, "9 -- printf : [%*i]", 0, 0));
+	// ft_printf("  %d\n", ft_printf("10 my printf : [%*i]", 10, 42));
+	// dprintf(1, "  %d\n", dprintf(1, "10 -- printf : [%*i]", 10, 42));	
+	// ft_printf("  %d\n", ft_printf("11 my printf : [%0*i]", -10, 42));
+	// dprintf(1, "  %d\n", dprintf(1, "11 -- printf : [%0*i]", -10, 42));
+	// ft_printf("  %d\n", ft_printf("12 my printf : [%*i]", 010, 42));
+	// dprintf(1, "  %d\n", dprintf(1, "12 -- printf : [%*i]", 010, 42));
+	// ft_printf("  %d\n", ft_printf("13 my printf : [%-*i]", -10, 42));
+	// dprintf(1, "  %d\n", dprintf(1, "13 -- printf : [%-*i]", -10, 42));
+	// ft_printf("  %d\n", ft_printf("13 my printf : [%-*i]", -10, -42));
+	// dprintf(1, "  %d\n", dprintf(1, "13 -- printf : [%-*i]", -10, -42));	
+// 	[I - Tests with *]
+// 960 - ("%*s", -10, "Hello") : FAILED
+// 973 - ("%.*s", -3, "Hello") : FAILED
+// 988 - ("%*.*s", 0, -5, "Hello") : FAILED
 
 	printf("----------------------------- x -----------------------------\n");
 

@@ -29,6 +29,7 @@ typedef struct		s_struct
 	int				precision;
 	int				option;
 	int				neg;
+	int				precision_neg;
 	int				value;
 	int				snull;
 }					t_struct;
@@ -39,8 +40,8 @@ void				apply_conversion(int index, va_list *ap, t_struct *flags);
 
 void				convert_char(va_list *ap, t_struct *flags);
 void				convert_str(va_list *ap, t_struct *flags);
-void				convert_str_width(char *str, int len, t_struct *box);
-void				convert_str_align(char *str, int len, t_struct *box);
+void				do_str_align_right(char *str, int len, t_struct *box);
+void				do_str_align_left(char *str, int len, t_struct *box);
 void				convert_decimal(va_list *ap, t_struct *flags);
 void				nb_is_neg(long *nb, t_struct *box);
 void				convert_unsigned_int(va_list *ap, t_struct *box);

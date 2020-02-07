@@ -22,6 +22,7 @@ void	init_box(t_struct *box)
 	box->option = -1;
 	box->snull = -1;
 	box->neg = 0;
+	box->precision_neg = 0;
 }
 
 void	init_tab_index(char *tab_index)

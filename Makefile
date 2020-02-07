@@ -32,7 +32,7 @@ SRCS		= ft_printf.c\
 			  ft_convert_c.c\
 			  ft_convert_d.c\
 			  ft_convert_s.c\
-			  ft_convert_x.c\
+			  ft_convert_u_x.c\
 			  ft_convert_p.c\
 
 OBJS 		= $(SRCS:.c=.o)
