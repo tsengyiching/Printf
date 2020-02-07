@@ -25,6 +25,8 @@ void	convert_address(va_list *ap, t_struct *box)
 	str_nb = ft_utoa_base(nb_decimal, "0123456789abcdef");
 	len = ft_strlen(str_nb);
 	(box->value) += 2;
+	if (box->precision == 0 && pointer == 0)
+		len = 0;
 	if (box->width != -1)
 		write_spaces(box->width - len - 2, box);
 	write(1, "0x", 2);
