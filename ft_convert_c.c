@@ -25,3 +25,16 @@ void	convert_char(va_list *ap, t_struct *box)
 	if (box->align_left != -1)
 		write_spaces(box->align_left - 1, box);
 }
+
+void	convert_percentage(t_struct *box)
+{
+	char	c;
+
+	c = '%';
+	(box->value)++;
+	if (box->width != -1)
+		write_spaces(box->width - 1, box);
+	write(1, &c, 1);
+	if (box->align_left != -1)
+		write_spaces(box->align_left - 1, box);
+}

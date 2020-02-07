@@ -32,11 +32,8 @@ SRCS		= ft_printf.c\
 			  ft_convert_c.c\
 			  ft_convert_d.c\
 			  ft_convert_s.c\
-			  ft_convert_u.c\
 			  ft_convert_x.c\
-			  ft_convert_x_cap.c\
 			  ft_convert_p.c\
-			  ft_convert_percentage.c\
 
 OBJS 		= $(SRCS:.c=.o)
 
