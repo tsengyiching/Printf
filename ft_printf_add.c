@@ -46,9 +46,9 @@ int		get_int(const char *str, int *pos)
 char	*ft_utoa_base(unsigned long nb, char *base)
 {
 	char			*str;
-	unsigned long 	base_len;
+	unsigned long	base_len;
 	unsigned long	res_len;
-	unsigned long 	n;
+	unsigned long	n;
 
 	n = nb;
 	res_len = 1;
