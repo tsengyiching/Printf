@@ -35,7 +35,7 @@ void	convert_decimal(va_list *ap, t_struct *box)
 	nb = va_arg(*ap, int);
 	if (nb < 0)
 		nb_is_neg(&nb, box);
-	str_nb = ft_utoa_base((unsigned long long)nb, "0123456789");
+	str_nb = ft_utoa_base((unsigned long)nb, "0123456789");
 	len = ft_strlen(str_nb);
 	if (box->zero != -1 && box->precision != -1)
 	{
