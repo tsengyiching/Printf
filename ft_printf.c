@@ -13,7 +13,7 @@
 
 #include "libftprintf.h"
 
-int		is_flag(const char *format, int *pos, va_list *ap, t_struct *box)
+static int	is_flag(const char *format, int *pos, va_list *ap, t_struct *box)
 {
 	if (format[*pos] == '-')
 		return (put_align_left(format, pos, box));
@@ -28,7 +28,16 @@ int		is_flag(const char *format, int *pos, va_list *ap, t_struct *box)
 	return (-1);
 }
 
-void	ft_printf_parse(const char *format, t_struct *box, va_list *ap)
+static void	do_conversion(int index, int *pos, t_struct *box, va_list *ap)
+{
+	if (index == 8)
+		convert_percentage(box);
+	else
+		apply_conversion(index, ap, box);
+	(*pos)++;
+}
+
+static void	ft_printf_parse(const char *format, t_struct *box, va_list *ap)
 {
 	char	tab_index[10];
 	int		pos;
@@ -47,13 +56,7 @@ void	ft_printf_parse(const char *format, t_struct *box, va_list *ap)
 		while (tmp != -1)
 			tmp = is_flag(format, &pos, ap, box);
 		if ((index = find_index(tab_index, format[pos])) != -1)
-		{
-			if (index == 8)
-				convert_percentage(box);
-			else
-				apply_conversion(index, ap, box);
-			pos++;
-		}
+			do_conversion(index, &pos, box, ap);
 		tmp = 0;
 		i = get_percentage_index(format + pos);
 		write_words(format + pos, i, box);
@@ -62,7 +65,7 @@ void	ft_printf_parse(const char *format, t_struct *box, va_list *ap)
 	}
 }
 
-int		ft_printf(const char *format, ...)
+int			ft_printf(const char *format, ...)
 {
 	va_list		ap;
 	t_struct	box;
