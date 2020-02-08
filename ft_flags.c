@@ -39,20 +39,16 @@ int		put_option(int *pos, va_list *ap, t_struct *box)
 	if (box->width == -1 && box->option == -1 && box->precision != 0 &&
 		box->align_left != 0 && box->zero != 0)
 	{
-		if (i >= 0)
-			box->width = i;
-		else
-			box->align_left = -(i);
+		box->width = (i >= 0 ? i : -1);
+		box->align_left = (i < 0 ? -(i) : -1);
 		box->option = 1;
 	}
 	else if (box->align_left == 0 && box->option == -1 && box->precision != 0)
 		box->align_left = (i < 0 ? -(i) : i);
 	else if (box->zero == 0 && box->option == -1 && box->precision != 0)
 	{
-		if (i < 0)
-			box->align_left = -(i);
-		else
-			box->zero = i;
+		box->zero = (i >= 0 ? i : -1);
+		box->align_left = (i < 0 ? -(i) : -1);
 	}
 	else if (box->option == 1 || box->precision == 0)
 	{
