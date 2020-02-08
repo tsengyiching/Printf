@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_write_nbr_diff.c                              .::    .:/ .      .::   */
+/*   ft_write_nbr.c                                   .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: yictseng <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
@@ -11,7 +11,7 @@
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "libft_printf.h"
+#include "libftprintf.h"
 
 void	write_nbr(char *str_nb, int len, int index_zero, t_struct *box)
 {

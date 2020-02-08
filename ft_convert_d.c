@@ -11,7 +11,7 @@
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "libft_printf.h"
+#include "libftprintf.h"
 
 void	nb_is_neg(long *nb, t_struct *box)
 {

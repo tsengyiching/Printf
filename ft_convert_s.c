@@ -11,7 +11,7 @@
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "libft_printf.h"
+#include "libftprintf.h"
 
 int		str_null(t_struct *box, char **str)
 {

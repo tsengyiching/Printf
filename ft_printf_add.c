@@ -11,7 +11,7 @@
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "libft_printf.h"
+#include "libftprintf.h"
 
 int		get_percentage_index(const char *format)
 {

@@ -17,7 +17,7 @@
 
 NAME 		= libftprintf.a
 
-HEADER 		= libft_printf.h
+HEADER 		= libftprintf.h
 
 LIB			= libft.a
 
@@ -32,8 +32,7 @@ SRCS		= ft_printf.c\
 			  ft_convert_c.c\
 			  ft_convert_d.c\
 			  ft_convert_s.c\
-			  ft_convert_u_x.c\
-			  ft_convert_p.c\
+			  ft_convert_uxp.c\
 
 OBJS 		= $(SRCS:.c=.o)
 

@@ -1,4 +1,4 @@
-#include "libft_printf.h"
+#include "libftprintf.h"
 #include "libft/libft.h"
 
 int		main(void)
@@ -39,7 +39,7 @@ int		main(void)
 	// dprintf(1, "  %d\n", ft_printf("36 my printf : [%10.*s]", 1, "bonjour"));
 	// dprintf(1, "  %d\n", dprintf(1,"36 -- printf : [%10.*s]", 1, "bonjour"));
 	// dprintf(1, "  %d\n", ft_printf("37 my printf : [%*.5s]", 10, "bonjour"));
-	// dprintf(1, "  %d\n", dprintf(1,"37 -- printf : [%*.5s]", 10, "bonjour"));
+	dprintf(1, "  %d\n", dprintf(1,"37 -- printf : [%5.s]", (char*)42));
 
 	printf("----------------------------- d -----------------------------\n");
 	
@@ -453,3 +453,13 @@ int		main(void)
 	// printf("%d\n", printf("4caractere 1 %12c caractere 2 %12c\n", 'a', 'c'));
 	return (0);
 }
+
+	// int ret;
+	// int i;
+
+	// i = -1;
+	// // ret = ft_printf("Moi : |%-010d|", 42);
+	// // ft_printf("MoiR : ret = |%d|\n", ret);
+	// ret = printf("Lui : |%-010d|", 42);
+	// printf("LuiR : ret = |%d|\n", ret);
+	// i++;ft_printf("i = %d\n\n-------------------\n\n", i);
