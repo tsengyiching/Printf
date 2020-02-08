@@ -43,12 +43,12 @@ int		get_int(const char *str, int *pos)
 	return (res);
 }
 
-char	*ft_utoa_base(unsigned long long nb, char *base)
+char	*ft_utoa_base(unsigned long nb, char *base)
 {
-	char				*str;
-	unsigned long long	base_len;
-	unsigned long long	res_len;
-	unsigned long long	n;
+	char			*str;
+	unsigned long 	base_len;
+	unsigned long	res_len;
+	unsigned long 	n;
 
 	n = nb;
 	res_len = 1;

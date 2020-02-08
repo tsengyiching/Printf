@@ -32,7 +32,7 @@ void	add_spaces_n_init(int *len, t_struct *box)
 	*len = 0;
 }
 
-void	do_align_right(char *str_nb, int len, t_struct *box)
+void	do_nbr_align_right(char *str_nb, int len, t_struct *box)
 {
 	int index_zero;
 
@@ -45,7 +45,7 @@ void	do_align_right(char *str_nb, int len, t_struct *box)
 	write_nbr(str_nb, len, index_zero, box);
 }
 
-void	do_align_left(char *str_nb, int len, t_struct *box)
+void	do_nbr_align_left(char *str_nb, int len, t_struct *box)
 {
 	int index_zero;
 

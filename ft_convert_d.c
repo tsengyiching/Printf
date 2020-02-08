@@ -45,9 +45,9 @@ void	convert_decimal(va_list *ap, t_struct *box)
 	if (box->precision == 0 && nb == 0)
 		add_spaces_n_init(&len, box);
 	if (box->width != -1 && box->precision != -1)
-		do_align_right(str_nb, len, box);
+		do_nbr_align_right(str_nb, len, box);
 	else if (box->align_left != -1 && box->precision != -1)
-		do_align_left(str_nb, len, box);
+		do_nbr_align_left(str_nb, len, box);
 	else
 		add_spaces_or_zeros(str_nb, len, box);
 	free(str_nb);
