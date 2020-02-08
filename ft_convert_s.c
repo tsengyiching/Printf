@@ -73,7 +73,7 @@ void	convert_str(va_list *ap, t_struct *box)
 	if (str == NULL)
 		len = str_null(box, &str);
 	else
-		len = ft_strlen(str);
+		len = (box->precision == 0 ? 0 : ft_strlen(str));
 	if (box->precision_neg == 1 && box->precision < 0)
 		box->precision = len;
 	if (box->width != -1)
