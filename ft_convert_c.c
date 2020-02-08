@@ -34,6 +34,8 @@ void	convert_percentage(t_struct *box)
 	(box->value)++;
 	if (box->width != -1)
 		write_spaces(box->width - 1, box);
+	else if (box->zero != -1)
+		write_zeros(box->zero -1, box);
 	write(1, &c, 1);
 	if (box->align_left != -1)
 		write_spaces(box->align_left - 1, box);
